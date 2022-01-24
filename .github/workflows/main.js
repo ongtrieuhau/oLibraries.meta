@@ -22,7 +22,7 @@ fs.readdir(
          if (file.isFile() === true) {
             console.log(file);
             console.log(JSON.stringify(file));
-            fs.readFile(file, "utf8", (err, data) => {
+            fs.readFile(file.name, "utf8", (err, data) => {
                if (err) {
                   console.error(err);
                   return;
