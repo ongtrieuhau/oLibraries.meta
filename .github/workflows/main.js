@@ -20,14 +20,14 @@ fs.readdir(
       files.forEach(function (file) {
          // Do whatever you want to do with the file
          if (file.isFile() === true) {
-            console.log(file);
-            fs.readFile(file.name, (err, data) => {
+            fs.readFile(file.name, "utf8", (err, data) => {
                if (err) {
                   console.error(err);
                   return;
+               } else if (data) {
+                  let objFile = JSON.parse(data);
+                  console.log(objFile);
                }
-               let objFile = JSON.parse(data);
-               console.log(objFile);
             });
          }
       });
