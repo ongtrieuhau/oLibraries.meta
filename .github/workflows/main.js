@@ -21,7 +21,7 @@ fs.readdir(
          // Do whatever you want to do with the file
          if (file.isFile() === true) {
             console.log(file);
-            fs.readFile(file.name, "utf8", (err, data) => {
+            fs.readFile(file.name, (err, data) => {
                if (err) {
                   console.error(err);
                   return;
