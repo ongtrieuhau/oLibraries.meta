@@ -21,13 +21,13 @@ fs.readdir(
          // Do whatever you want to do with the file
          if (file.isFile() === true) {
             console.log(file);
-            console.log(JSON.stringify(file));
             fs.readFile(file.name, "utf8", (err, data) => {
                if (err) {
                   console.error(err);
                   return;
                }
-               console.log(data);
+               var data = JSON.parse(data);
+               console.log(data.OriginalFilename);
             });
          }
       });
