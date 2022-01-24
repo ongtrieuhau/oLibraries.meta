@@ -26,8 +26,8 @@ fs.readdir(
                   console.error(err);
                   return;
                }
-               var data = JSON.parse(data);
-               console.log(data.OriginalFilename);
+               let objFile = JSON.parse(data);
+               console.log(objFile);
             });
          }
       });
