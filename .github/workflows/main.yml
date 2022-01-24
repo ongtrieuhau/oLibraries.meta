@@ -14,4 +14,4 @@ jobs:
          #    run: .\deployFolder.ps1
          #    shell: powershell
          - name: Run nodejs
-           run: node .\.github\workflows\index.js
+           run: node .\.github\workflows\main.js
