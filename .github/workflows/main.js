@@ -14,7 +14,16 @@ fs.readdir(directoryPath, function (err, files) {
    //listing all files using forEach
    files.forEach(function (file) {
       // Do whatever you want to do with the file
-      console.log(file);
-      console.log(JSON.stringify(file));
+      if (file.isDirectory() === false) {
+         console.log(file);
+         console.log(JSON.stringify(file));
+         fs.readFile(file, "utf8", (err, data) => {
+            if (err) {
+               console.error(err);
+               return;
+            }
+            console.log(data);
+         });
+      }
    });
 });
