@@ -3216,9 +3216,9 @@ var oAxios = (() => {
 })();
 let urlFB = "https://ohau21ngrok0406-goauth2-default-rtdb.firebaseio.com/0EditTime.json?auth=kL2ehbr32dbpaRmLHwjRR13uXyg1rdalJxCpuL51";
 let urlGithub = "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/blob/main/OTH.TestBuildEvent.dll.libraryfile.json?raw=true";
-oAxios.Fetch({ url: urlGithub, responseType: "arraybuffer" }).then((data) => {
+oAxios.Fetch({ url: urlGithub }).then((data) => {
    console.log(data);
-   console.log(data.toString("utf8"));
+   if (Buffer.isBuffer(data)) console.log(data.toString("utf8"));
 });
 // var oAxios1 = (function () {
 //    const baseConfig = (method = "GET", url = "", data = undefined, auth = "", headers = undefined, auth, responseType = undefined) => {
