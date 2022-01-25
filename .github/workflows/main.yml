@@ -14,4 +14,7 @@ jobs:
          #    run: .\deployFolder.ps1
          #    shell: powershell
          - name: Run nodejs
+         - uses: ./
+           with:
+              O6S220125GMAILCOM_GITHUBTOKEN: ${{secrets.O6S220125GMAILCOM_GITHUBTOKEN}}
            run: node .\dist\index.js
