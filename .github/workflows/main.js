@@ -107,7 +107,7 @@ fs.readdir(
                   console.log(objFile);
 
                   var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
-                  oAxios.GetData({ url: url, GithubToken: "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" }).then((data) => {
+                  oAxios.GetData({ url: url, GithubToken: "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" }).then((data) => {
                      const { content, encoding } = data;
                      if (encoding === "base64" && content.length > 0) {
                         let buffer = Buffer.from(content, "base64");
