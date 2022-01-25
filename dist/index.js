@@ -9955,7 +9955,8 @@ var CryptoJS = __nccwpck_require__(1286);
 
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
-      const { auth, data } = paraConfig;
+      var { auth, data, GithubToken } = paraConfig;
+      if (typeof GithubToken === "string" && GithubToken !== "") auth = "Basic " + Buffer.from(":" + GithubToken).toString("base64");
       let baseConfig = {
          method: "GET",
          url: "",
@@ -9967,9 +9968,17 @@ var oAxios = (() => {
          ...baseConfig,
          ...paraConfig,
       };
+
       if (!("content-type" in config.headers)) config.headers["content-type"] = "application/json";
-      if ((config.url + "").toLowerCase().startsWith("https://api.heroku.com") === true) {
-         config.headers.Accept = "application/vnd.heroku+json; version=3";
+      //Accept
+      let urlLower = (config.url + "").toLowerCase();
+      switch (true) {
+         case urlLower.startsWith("https://api.heroku.com"):
+            config.headers.Accept = "application/vnd.heroku+json; version=3";
+            break;
+         case urlLower.startsWith("https://api.github.com"):
+            config.headers.Accept = "application/vnd.github.v3+json";
+            break;
       }
       if (typeof auth === "string" && auth !== "") config.headers.Authorization = auth;
       if (typeof data === "object") config.data = data;
@@ -9991,16 +10000,36 @@ var oAxios = (() => {
             responseType: "arraybuffer",
          });
       },
+      GetData: (paraConfig) => {
+         return fetchByConfig({
+            ...paraConfig,
+            method: "GET",
+         });
+      },
    };
 })();
-/* let urlFB = "https://ohau21ngrok0406-goauth2-default-rtdb.firebaseio.com/0EditTime.json?auth=kL2ehbr32dbpaRmLHwjRR13uXyg1rdalJxCpuL51";
-let urlGithub = "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/blob/main/OTH.TestBuildEvent.dll.libraryfile.json?raw=true";
-oAxios.DownloadBuffer({ url: urlGithub }).then((data) => {
-   console.log(data);
-   if (Buffer.isBuffer(data)) console.log(data.toString("utf8"));
-}); */
+var oCrytoJS = (() => {
+   return {
+      HashMD5Buffer: (buffer) =>
+         CryptoJS.MD5(CryptoJS.lib.WordArray.create(new Uint8Array(buffer)))
+            .toString()
+            .toUpperCase(),
+      HashSHA1Buffer: (buffer) =>
+         CryptoJS.SHA1(CryptoJS.lib.WordArray.create(new Uint8Array(buffer)))
+            .toString()
+            .toUpperCase(),
+
+      HashMD5String: (text) => CryptoJS.MD5(text).toString().toUpperCase(),
+      HashSHA1String: (text) => CryptoJS.SHA1(text).toString().toUpperCase(),
+   };
+})();
 console.info("BẮT ĐẦU THỰC HIỆN");
-console.info(CryptoJS.SHA1("BẮT ĐẦU THỰC HIỆN").toString());
+var buffer = Buffer.from("BẮT ĐẦU THỰC HIỆN");
+
+console.info("HashSHA1Buffer:", oCrytoJS.HashSHA1Buffer(buffer));
+console.info("HashMD5Buffer:", oCrytoJS.HashMD5Buffer(buffer));
+console.info("hashMd5String:", oCrytoJS.HashMD5String("BẮT ĐẦU THỰC HIỆN"));
+console.info("HashSHA1String:", oCrytoJS.HashSHA1String("BẮT ĐẦU THỰC HIỆN"));
 //joining path of directory
 const directoryPath = ".\\";
 //passsing directoryPath and callback function
@@ -10025,13 +10054,24 @@ fs.readdir(
                } else if (data) {
                   let objFile = JSON.parse(data);
                   console.log(objFile);
-                  //https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/raw/main/OTH.TestBuildEvent.dll.libraryfile.json
-                  var url = "https://github.com/oth-dhghospital/oLibraries/blob/main/OTH.TestBuildEvent.dll?raw=true";
-                  oAxios.DownloadBuffer({ url: url }).then((buffer) => {
-                     console.log(buffer);
-                     fs.writeFile("OTH.TestBuildEvent.dll", buffer, (err) => {
-                        if (err) throw err;
-                     });
+
+                  var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
+                  oAxios.GetData({ url: url, GithubToken: "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" }).then((data) => {
+                     const { content, encoding } = data;
+                     if (encoding === "base64" && content.length > 0) {
+                        let buffer = Buffer.from(content, "base64");
+                        let md5Buffer = oCrytoJS.HashMD5Buffer(buffer);
+                        let compare = md5Buffer === objFile.FileHashMD5.toUpperCase();
+                        console.log("compare:", compare);
+                        console.log("md5Buffer:", md5Buffer);
+                        console.log("FileHashMD5:", objFile.FileHashMD5);
+                        if (compare === true) {
+                           console.log(buffer);
+                           fs.writeFile("OTH.TestBuildEvent.dll", buffer, (err) => {
+                              if (err) throw err;
+                           });
+                        }
+                     }
                   });
                }
             });
