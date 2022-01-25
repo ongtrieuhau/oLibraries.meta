@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta#readme",
   "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
     "axios": "^0.25.0",
     "crypto-js": "^4.1.1"
   }

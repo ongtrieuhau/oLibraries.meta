@@ -15,3 +15,5 @@ jobs:
          #    shell: powershell
          - name: Run nodejs
            run: node .\dist\index.js
+           with:
+              token: ${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }}

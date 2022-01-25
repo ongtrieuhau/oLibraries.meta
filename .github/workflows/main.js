@@ -3,6 +3,9 @@ const path = require("path");
 const fs = require("fs");
 var axios = require("axios");
 var CryptoJS = require("crypto-js");
+const core = require("@actions/core");
+const github = require("@actions/github");
+console.log({ __dirname: __dirname, __filename: __filename });
 
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
@@ -80,6 +83,14 @@ var oCrytoJS = (() => {
       AESDecryptString: (text, passphare) => CryptoJS.AES.decrypt(text, passphare).toString(CryptoJS.enc.Utf8),
    };
 })();
+
+(async () => {
+   var token = core.getInput("token", { required: true });
+   console.log(token);
+})();
+
+return;
+
 console.info("BẮT ĐẦU THỰC HIỆN");
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
 var buffer = Buffer.from(crytoVar);
