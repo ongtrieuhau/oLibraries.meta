@@ -7,13 +7,13 @@ jobs:
          O6S220125GMAILCOM_GITHUBTOKEN: ${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }}
       name: Analyze repository
       steps:
-         - name: create env file
-           run: |
-              touch .env
-              echo O6S220125GMAILCOM_GITHUBTOKEN =${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }} >> .env
+         #  - name: create env file
+         #    run: |
+         #       touch .env
+         #       echo O6S220125GMAILCOM_GITHUBTOKEN =${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }} >> .env
 
-           # To use this repository's private action,
-           # you must check out the repository
+         # To use this repository's private action,
+         # you must check out the repository
          - name: Checkout
            uses: actions/checkout@v2
            #  - name: Phân tích Folder

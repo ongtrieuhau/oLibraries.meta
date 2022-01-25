@@ -18394,13 +18394,6 @@ var oCrytoJS = (() => {
       AESDecryptString: (text, passphare) => CryptoJS.AES.decrypt(text, passphare).toString(CryptoJS.enc.Utf8),
    };
 })();
-console.log(process.env);
-(async () => {
-   var token = core.getInput("O6S220125GMAILCOM_GITHUBTOKEN", { required: true });
-   console.log(token);
-})();
-
-return;
 
 console.info("BẮT ĐẦU THỰC HIỆN");
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
@@ -18444,7 +18437,7 @@ fs.readdir(
                   console.log(objFile);
 
                   var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
-                  oAxios.GetData({ url: url, GithubToken: "U2FsdGVkX1/qQpgO9SUBBejJiieoa365jHIR8D8e0558iFL7TR3tKCEfDYiIA3/1MnWd4hRcsP0KmwUElx7maw==" }).then((data) => {
+                  oAxios.GetData({ url: url, GithubToken: process.env.O6S220125GMAILCOM_GITHUBTOKEN }).then((data) => {
                      const { content, encoding } = data;
                      if (encoding === "base64" && content.length > 0) {
                         let buffer = Buffer.from(content, "base64");
