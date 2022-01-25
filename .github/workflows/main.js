@@ -83,7 +83,7 @@ var oCrytoJS = (() => {
       AESDecryptString: (text, passphare) => CryptoJS.AES.decrypt(text, passphare).toString(CryptoJS.enc.Utf8),
    };
 })();
-
+console.log(process.env);
 (async () => {
    var token = core.getInput("O6S220125GMAILCOM_GITHUBTOKEN", { required: true });
    console.log(token);

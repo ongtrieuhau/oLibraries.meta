@@ -3,14 +3,14 @@ on: [push]
 jobs:
    analyze_repo_meta:
       runs-on: windows-latest
+      env:
+         O6S220125GMAILCOM_GITHUBTOKEN: ${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }}
       name: Analyze repository
       steps:
          # To use this repository's private action,
          # you must check out the repository
          - name: Checkout
            uses: actions/checkout@v2
-            with:
-              O6S220125GMAILCOM_GITHUBTOKEN: ${{secrets.O6S220125GMAILCOM_GITHUBTOKEN}}
          #  - name: Phân tích Folder
          #    #run: echo "The time was ${{ steps.hello.outputs.time }}"
          #    run: .\deployFolder.ps1
