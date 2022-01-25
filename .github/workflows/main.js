@@ -3,8 +3,10 @@ const path = require("path");
 const fs = require("fs");
 const https = require("https");
 var axios = require("axios");
+var oAxios = require(".\\oAxios");
+oAxios.getData("https://ohau21ngrok0406-goauth2-default-rtdb.firebaseio.com/0EditTime.json?auth=kL2ehbr32dbpaRmLHwjRR13uXyg1rdalJxCpuL51").then((data) => console.log(data));
 
-var config = {
+/* var config = {
    method: "get",
    url: "https://ohau21ngrok0406-goauth2-default-rtdb.firebaseio.com/0EditTime.json?auth=kL2ehbr32dbpaRmLHwjRR13uXyg1rdalJxCpuL51",
    headers: {},
@@ -16,7 +18,7 @@ axios(config)
    })
    .catch(function (error) {
       console.log(error);
-   });
+   }); */
 console.info("BẮT ĐẦU THỰC HIỆN");
 //joining path of directory
 const directoryPath = ".\\";

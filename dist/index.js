@@ -3062,6 +3062,14 @@ module.exports.wrap = wrap;
 
 /***/ }),
 
+/***/ 178:
+/***/ ((module) => {
+
+module.exports = eval("require")(".\\oAxios");
+
+
+/***/ }),
+
 /***/ 887:
 /***/ ((module) => {
 
@@ -3180,8 +3188,10 @@ const path = __nccwpck_require__(17);
 const fs = __nccwpck_require__(147);
 const https = __nccwpck_require__(687);
 var axios = __nccwpck_require__(380);
+var oAxios = __nccwpck_require__(178);
+oAxios.getData("https://ohau21ngrok0406-goauth2-default-rtdb.firebaseio.com/0EditTime.json?auth=kL2ehbr32dbpaRmLHwjRR13uXyg1rdalJxCpuL51").then((data) => console.log(data));
 
-var config = {
+/* var config = {
    method: "get",
    url: "https://ohau21ngrok0406-goauth2-default-rtdb.firebaseio.com/0EditTime.json?auth=kL2ehbr32dbpaRmLHwjRR13uXyg1rdalJxCpuL51",
    headers: {},
@@ -3193,7 +3203,7 @@ axios(config)
    })
    .catch(function (error) {
       console.log(error);
-   });
+   }); */
 console.info("BẮT ĐẦU THỰC HIỆN");
 //joining path of directory
 const directoryPath = ".\\";
