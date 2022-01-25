@@ -7,7 +7,10 @@ var CryptoJS = require("crypto-js");
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
       var { auth, data, GithubToken } = paraConfig;
-      if (typeof GithubToken === "string" && GithubToken !== "") auth = "Basic " + Buffer.from(":" + GithubToken).toString("base64");
+      if (typeof GithubToken === "string" && GithubToken !== "") {
+         GithubToken = oCrytoJS.AESDecryptString(GithubToken, "123");
+         auth = "Basic " + Buffer.from(":" + GithubToken).toString("base64");
+      }
       let baseConfig = {
          method: "GET",
          url: "",
@@ -72,10 +75,17 @@ var oCrytoJS = (() => {
 
       HashMD5String: (text) => CryptoJS.MD5(text).toString().toUpperCase(),
       HashSHA1String: (text) => CryptoJS.SHA1(text).toString().toUpperCase(),
+
+      AESEncryptString: (text, passphare) => CryptoJS.AES.encrypt(text, passphare).toString(),
+      AESDecryptString: (text, passphare) => CryptoJS.AES.decrypt(text, passphare).toString(CryptoJS.enc.Utf8),
    };
 })();
 console.info("BẮT ĐẦU THỰC HIỆN");
-var buffer = Buffer.from("BẮT ĐẦU THỰC HIỆN");
+var crytoVar = "BẮT ĐẦU THỰC HIỆN";
+var buffer = Buffer.from(crytoVar);
+let encryptVar = oCrytoJS.AESEncryptString(crytoVar, "123");
+console.info("AESEncryptString:", encryptVar);
+console.info("AESDecryptString:", oCrytoJS.AESDecryptString(encryptVar, "123"));
 
 console.info("HashSHA1Buffer:", oCrytoJS.HashSHA1Buffer(buffer));
 console.info("HashMD5Buffer:", oCrytoJS.HashMD5Buffer(buffer));
@@ -107,7 +117,7 @@ fs.readdir(
                   console.log(objFile);
 
                   var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
-                  oAxios.GetData({ url: url, GithubToken: "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" }).then((data) => {
+                  oAxios.GetData({ url: url, GithubToken: "U2FsdGVkX1/qQpgO9SUBBejJiieoa365jHIR8D8e0558iFL7TR3tKCEfDYiIA3/1MnWd4hRcsP0KmwUElx7maw==" }).then((data) => {
                      const { content, encoding } = data;
                      if (encoding === "base64" && content.length > 0) {
                         let buffer = Buffer.from(content, "base64");
