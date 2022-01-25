@@ -84,10 +84,10 @@ var oCrytoJS = (() => {
    };
 })();
 console.log(process.env);
-/* (async () => {
+(async () => {
    var token = core.getInput("O6S220125GMAILCOM_GITHUBTOKEN", { required: true });
    console.log(token);
-})(); */
+})();
 
 return;
 
@@ -117,6 +117,11 @@ fs.readdir(
       }
       //listing all files using forEach
       files.forEach(function (file) {
+         if (file.isFile() && file.name.endsWith(".env")) {
+            fs.readFile(file.name, "utf8", (err, data) => {
+               console.log(data);
+            });
+         }
          // Do whatever you want to do with the file
          if (file.isFile() === true && file.name.endsWith(".libraryfile.json")) {
             fs.readFile(file.name, "utf8", (err, data) => {

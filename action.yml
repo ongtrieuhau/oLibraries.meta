@@ -1,8 +1,0 @@
-name: "TEST INPUT"
-description: "Use core to get secrets"
-author: "OTh"
-
-inputs:
-   O6S220125GMAILCOM_GITHUBTOKEN:
-      description: "O6S220125GMAILCOM_GITHUBTOKEN"
-      required: true
