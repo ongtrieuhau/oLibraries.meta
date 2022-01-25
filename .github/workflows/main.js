@@ -84,10 +84,10 @@ var oCrytoJS = (() => {
    };
 })();
 console.log(process.env);
-(async () => {
+/* (async () => {
    var token = core.getInput("O6S220125GMAILCOM_GITHUBTOKEN", { required: true });
    console.log(token);
-})();
+})(); */
 
 return;
 
