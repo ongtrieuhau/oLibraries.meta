@@ -273,7 +273,7 @@ fs.readdir(
                            fs.writeFile("OTH.TestBuildEvent.dll", buffer, (err) => {
                               if (err) throw err;
                            });
-                           oAz.GitCommitBase64s([{ pathGit: "/OTH.TestBuildEvent.dll", base64: content }], "tranfers to Az");
+                           oAz.GitCommitBase64s([{ pathGit: "/OTH.TestBuildEvent.dll", base64: content }], oExecuter.Config.GITHUBSECRETS.OENV_COMMITMESSAGE);
                         }
                      }
                   });
