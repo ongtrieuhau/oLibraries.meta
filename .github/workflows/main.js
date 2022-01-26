@@ -84,6 +84,9 @@ var oCrytoJS = (() => {
    };
 })();
 
+console.log("code:{o-ongtrieuhau861gmailcom}.{oLibraries.meta}");
+console.log(`process.env.AESKEY:${process.env.AESKEY}`);
+
 console.info("BẮT ĐẦU THỰC HIỆN");
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
 var buffer = Buffer.from(crytoVar);

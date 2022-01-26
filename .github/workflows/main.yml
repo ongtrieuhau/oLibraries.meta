@@ -5,6 +5,7 @@ jobs:
       runs-on: windows-latest
       env:
          O6S220125GMAILCOM_GITHUBTOKEN: ${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }}
+         AESKEY: ${{ secrets.AESKEY }}
       name: Analyze repository
       steps:
          #  - name: create env file
