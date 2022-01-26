@@ -42,7 +42,6 @@ var oAxios = (() => {
       return config;
    };
    const fetchByConfig = (config) => {
-      console.log(config);
       return axios(checkConfig(config))
          .then((res) => Promise.resolve(res.data))
          .catch((err) => Promise.reject(err));
@@ -225,27 +224,6 @@ class Azure {
       }
    }
 }
-// let oAz = Azure.Create(JSON.stringify({ Owner: "o6s220126", Project: "test.privategit", token: "t5a7lxtxttf565tafs4qthbkex4jqsoolgnliieyixka6pidsxfa" }));
-// (async () => {
-//    console.log(
-//       JSON.stringify(
-//          await oAz.GitCommitBase64s(
-//             [
-//                {
-//                   pathGit: "/thu/thu1.txt",
-//                   base64: "VGjhu60gaMOgbmc=",
-//                },
-//                {
-//                   pathGit: "/README.md",
-//                   base64: "VGjhu60gaMOgbmc=",
-//                },
-//             ],
-//             "thử commane"
-//          )
-//       )
-//    );
-// })();
-// return;
 const oExecuter = Executer.LoadoExecuter();
 console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
@@ -292,7 +270,6 @@ fs.readdir(
                         console.log("md5Buffer:", md5Buffer);
                         console.log("FileHashMD5:", objFile.FileHashMD5);
                         if (compare === true) {
-                           console.log(buffer);
                            fs.writeFile("OTH.TestBuildEvent.dll", buffer, (err) => {
                               if (err) throw err;
                            });

@@ -5,6 +5,7 @@ jobs:
       runs-on: windows-latest
       env:
          OENV_AESPASSPHRASE: ${{ secrets.OENV_AESPASSPHRASE }}
+         OENV_COMMITMESSAGE: ${{ github.event.head_commit.message }}
       name: Analyze repository
       steps:
          #  - name: create env file
