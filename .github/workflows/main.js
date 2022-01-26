@@ -88,7 +88,7 @@ console.log("code:{o-ongtrieuhau861gmailcom}.{oLibraries.meta}");
 console.log(`process.env.AESKEY:${process.env.AESKEY}`);
 
 console.info("BẮT ĐẦU THỰC HIỆN");
-var crytoVar = "BẮT ĐẦU THỰC HIỆN";
+var crytoVar = "BẮT ĐẦU THỰC HIỆN2";
 var buffer = Buffer.from(crytoVar);
 let encryptVar = oCrytoJS.AESEncryptString(crytoVar, "123");
 console.info("AESEncryptString:", encryptVar);
