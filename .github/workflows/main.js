@@ -5,7 +5,7 @@ var axios = require("axios");
 var CryptoJS = require("crypto-js");
 const core = require("@actions/core");
 const github = require("@actions/github");
-console.log({ __dirname: __dirname, __filename: __filename });
+console.log({ __dirname: __dirname, __filename: __filename, processEnv: process.env });
 
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {

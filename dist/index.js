@@ -18316,7 +18316,7 @@ var axios = __nccwpck_require__(5380);
 var CryptoJS = __nccwpck_require__(1286);
 const core = __nccwpck_require__(6336);
 const github = __nccwpck_require__(5173);
-console.log({ __dirname: __dirname, __filename: __filename });
+console.log({ __dirname: __dirname, __filename: __filename, processEnv: process.env });
 
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
