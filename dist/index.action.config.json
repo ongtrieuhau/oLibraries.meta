@@ -1,9 +1,4 @@
 {
-   "OTHENV": {
-      "Owner": "o-ongtrieuhau861gmailcom",
-      "Repo": "oLibraries.meta",
-      "OENV_AESPASSPHRASE": "{o-ongtrieuhau861gmailcom}.{oLibraries.meta}"
-   },
    "MainLibraryRepo": {
       "GithubOwner": "oth-dhghospital",
       "GithubRepo": "oLibraries",
