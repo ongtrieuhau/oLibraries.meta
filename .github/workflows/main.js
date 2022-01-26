@@ -24,6 +24,16 @@ class Executer {
          let file = files[i].toLowerCase();
          if (files[i].startsWith(executeFileName.toLowerCase()) && files[i].endsWith(".action.config.json")) {
             this.Config = JSON.parse(fs.readFileSync(path.join(executePathDirectory, files[i])).toString());
+            if (!("GITHUBSECRETS" in this.Config)) {
+               this.Config["GITHUBSECRETS"] = {};
+               let keys = Object.keys(process.env);
+               for (let i = 0; i < keys.length; i++) {
+                  let key = keys[i];
+                  if (key.startsWith("OENV_")) {
+                     this.Config["GITHUBSECRETS"][key] = process.env[key];
+                  }
+               }
+            }
             return this.Config;
             break;
          }
@@ -31,7 +41,6 @@ class Executer {
       return {};
    }
 }
-
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
       var { auth, data, GithubToken } = paraConfig;
@@ -107,21 +116,9 @@ var oCrytoJS = (() => {
       AESDecryptString: (text, passphare) => CryptoJS.AES.decrypt(text, passphare).toString(CryptoJS.enc.Utf8),
    };
 })();
-
 const oExecuter = Executer.LoadoExecuter();
 console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
-
-var buffer = Buffer.from(crytoVar);
-let encryptVar = oCrytoJS.AESEncryptString(crytoVar, "123");
-console.info("AESEncryptString:", encryptVar);
-console.info("AESDecryptString:", oCrytoJS.AESDecryptString(encryptVar, "123"));
-
-console.info("HashSHA1Buffer:", oCrytoJS.HashSHA1Buffer(buffer));
-console.info("HashMD5Buffer:", oCrytoJS.HashMD5Buffer(buffer));
-console.info("hashMd5String:", oCrytoJS.HashMD5String("BẮT ĐẦU THỰC HIỆN"));
-console.info("HashSHA1String:", oCrytoJS.HashSHA1String("BẮT ĐẦU THỰC HIỆN"));
-//joining path of directory
 const directoryPath = ".\\";
 //passsing directoryPath and callback function
 fs.readdir(
@@ -153,7 +150,7 @@ fs.readdir(
 
                   var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
 
-                  let githubToken = oCrytoJS.AESDecryptString(oExecuter.Config.MainLibraryRepo.GithubToken, process.env.OENV_AESPASSPHRASE);
+                  let githubToken = oCrytoJS.AESDecryptString(oExecuter.Config.MainLibraryRepo.GithubToken, oExecuter.Config.GITHUBSECRETS.OENV_AESPASSPHRASE);
                   oAxios.GetData({ url: url, GithubToken: githubToken }).then((data) => {
                      const { content, encoding } = data;
                      if (encoding === "base64" && content.length > 0) {
