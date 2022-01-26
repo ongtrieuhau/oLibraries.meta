@@ -18316,26 +18316,33 @@ var axios = __nccwpck_require__(5380);
 var CryptoJS = __nccwpck_require__(1286);
 const core = __nccwpck_require__(6336);
 const github = __nccwpck_require__(5173);
-const oExecuter = {
-   __dirname: __dirname,
-   __filename: __filename,
-   env: process.env,
-   ConfigPathFile: () => {
-      let executeFileName = path.parse(__filename).name;
-      let executePathDirectory = path.dirname(__filename);
+class Executer {
+   static LoadoExecuter = () => {
+      return new Executer();
+   };
+   constructor() {
+      this.__dirname = __dirname;
+      this.__filename = __filename;
+      this.env = process.env;
+      this.Config = {};
+      this.LoadConfig();
+   }
+   LoadConfig() {
+      let executeFileName = path.parse(this.__filename).name;
+      let executePathDirectory = path.dirname(this.__filename);
       let files = fs.readdirSync(executePathDirectory);
-      let result = "";
       for (var i = 0; i < files.length; i++) {
          let file = files[i].toLowerCase();
          if (files[i].startsWith(executeFileName.toLowerCase()) && files[i].endsWith(".action.config.json")) {
-            result = path.join(executePathDirectory, files[i]);
+            this.Config = JSON.parse(fs.readFileSync(path.join(executePathDirectory, files[i])).toString());
+            return this.Config;
             break;
          }
       }
-      return result;
-   },
-};
-console.log(oExecuter.ConfigPathFile());
+      return {};
+   }
+}
+const oExecuter = Executer.LoadoExecuter();
 console.log(oExecuter);
 
 var oAxios = (() => {
