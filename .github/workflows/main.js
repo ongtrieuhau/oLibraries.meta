@@ -31,14 +31,11 @@ class Executer {
       return {};
    }
 }
-const oExecuter = Executer.LoadoExecuter();
-console.log(oExecuter);
 
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
       var { auth, data, GithubToken } = paraConfig;
       if (typeof GithubToken === "string" && GithubToken !== "") {
-         GithubToken = oCrytoJS.AESDecryptString(GithubToken, "123");
          auth = "Basic " + Buffer.from(":" + GithubToken).toString("base64");
       }
       let baseConfig = {
@@ -111,9 +108,10 @@ var oCrytoJS = (() => {
    };
 })();
 
+const oExecuter = Executer.LoadoExecuter();
+console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
 
-return;
 var buffer = Buffer.from(crytoVar);
 let encryptVar = oCrytoJS.AESEncryptString(crytoVar, "123");
 console.info("AESEncryptString:", encryptVar);
@@ -154,7 +152,9 @@ fs.readdir(
                   console.log(objFile);
 
                   var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
-                  oAxios.GetData({ url: url, GithubToken: process.env.O6S220125GMAILCOM_GITHUBTOKEN }).then((data) => {
+
+                  let githubToken = oCrytoJS.AESDecryptString(oExecuter.Config.MainLibraryRepo.GithubToken, process.env.OENV_AESPASSPHRASE);
+                  oAxios.GetData({ url: url, GithubToken: githubToken }).then((data) => {
                      const { content, encoding } = data;
                      if (encoding === "base64" && content.length > 0) {
                         let buffer = Buffer.from(content, "base64");
