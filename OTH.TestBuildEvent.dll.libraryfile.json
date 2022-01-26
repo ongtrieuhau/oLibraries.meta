@@ -1,24 +1,24 @@
 {
   "OriginalFilename": "OTH.TestBuildEvent.dll",
-  "FileVersion": "1.22.0126.1",
+  "FileVersion": "1.22.0126.2",
   "FileDescription": "OTH.TestBuildEvent",
   "FileLength": 4096,
   "IsExe": false,
   "FileTime": {
-    "CreationTime": "20220126 11:16:18",
-    "LastWriteTime": "20220126 11:16:18",
-    "LastAccessTime": "20220126 11:16:20"
+    "CreationTime": "20220126 16:43:11",
+    "LastWriteTime": "20220126 16:43:11",
+    "LastAccessTime": "20220126 16:43:12"
   },
-  "FileHashMD5": "9B40B0753D33195E3BA096E0B5DB29B6",
-  "FileHashSHA1": "4510EF2E9DE1E8EFDC8D89BC757EEFFB1BF89462",
+  "FileHashMD5": "11A3EAE7449E841F2B73EF1CF0B387C4",
+  "FileHashSHA1": "9005C57DA2B6C4EB62F1265AB4F311735C1F6C76",
   "ReferencedAssemblies": [
     
   ],
-  "AssemblyFullName": "OTH.TestBuildEvent, Version=1.22.126.1, Culture=neutral, PublicKeyToken=null",
-  "AssemblyFullNameMD5": "2ED39DBF936FC7BCFD8A1C2B450F5D39",
-  "AssemblyFullNameSHA1": "1E5D744469241D35B4FA68639005B2366157F93F",
+  "AssemblyFullName": "OTH.TestBuildEvent, Version=1.22.126.2, Culture=neutral, PublicKeyToken=null",
+  "AssemblyFullNameMD5": "1964124C7DBA23652AA7D3595533E84E",
+  "AssemblyFullNameSHA1": "CEC0F77DA9D39BE43943DD41A0032B3C30405E66",
   "AssemblyName": "OTH.TestBuildEvent",
-  "AssemblyVersion": "1.22.126.1",
+  "AssemblyVersion": "1.22.126.2",
   "AssemblyProcessorArchitecture": "MSIL",
   "AssemblyImageRuntimeVersion": "v4.0.30319"
 }
