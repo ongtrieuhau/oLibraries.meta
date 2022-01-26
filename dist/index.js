@@ -18316,7 +18316,27 @@ var axios = __nccwpck_require__(5380);
 var CryptoJS = __nccwpck_require__(1286);
 const core = __nccwpck_require__(6336);
 const github = __nccwpck_require__(5173);
-console.log({ __dirname: __dirname, __filename: __filename, processEnv: process.env });
+const oExecuter = {
+   __dirname: __dirname,
+   __filename: __filename,
+   env: process.env,
+   ConfigPathFile: () => {
+      let executeFileName = path.parse(__filename).name;
+      let executePathDirectory = path.dirname(__filename);
+      let files = fs.readdirSync(executePathDirectory);
+      let result = "";
+      for (var i = 0; i < files.length; i++) {
+         let file = files[i].toLowerCase();
+         if (files[i].startsWith(executeFileName.toLowerCase()) && files[i].endsWith(".action.config.json")) {
+            result = path.join(executePathDirectory, files[i]);
+            break;
+         }
+      }
+      return result;
+   },
+};
+console.log(oExecuter.ConfigPathFile());
+console.log(oExecuter);
 
 var oAxios = (() => {
    const checkConfig = (paraConfig) => {
@@ -18395,11 +18415,9 @@ var oCrytoJS = (() => {
    };
 })();
 
-console.log("code:{o-ongtrieuhau861gmailcom}.{oLibraries.meta}");
-console.log(`process.env.AESKEY:${process.env.AESKEY}`);
-
-console.info("BẮT ĐẦU THỰC HIỆN");
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
+
+return;
 var buffer = Buffer.from(crytoVar);
 let encryptVar = oCrytoJS.AESEncryptString(crytoVar, "123");
 console.info("AESEncryptString:", encryptVar);
