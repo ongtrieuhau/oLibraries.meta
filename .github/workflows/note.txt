@@ -1,0 +1,8 @@
+1. Lấy secrects value (https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/settings/secrets/actions)
+    1.0 Vào link trên để add secrets
+    1.1 Sau runs-on phải sử dụng env trong file .yml
+        runs-on: windows-latest
+        env:
+            O6S220125GMAILCOM_GITHUBTOKEN: ${{ secrets.O6S220125GMAILCOM_GITHUBTOKEN }}
+            AESKEY: ${{ secrets.AESKEY }}
+    1.2 Sử dụng trong code NODEJS: process.env.AESKEY
