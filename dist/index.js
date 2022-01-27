@@ -18494,8 +18494,10 @@ class Executer {
    }
 }
 class Azure {
-   static Create(azureObjectOrJson) {
-      return new Azure(azureObjectOrJson);
+   static Create(azureObjectOrJson, passphare = undefined) {
+      let az = new Azure(azureObjectOrJson);
+      if (typeof passphare === "string" && passphare.length > 0) az.AESDecryptForce(passphare);
+      return az;
    }
    constructor(azureObjectOrJson) {
       if (typeof azureObjectOrJson === "string" && azureObjectOrJson.length > 0) {
@@ -18571,10 +18573,17 @@ class Azure {
          throw error;
       }
    }
+   AESDecryptForce(passphare) {
+      try {
+         this.Token = oCrytoJS.AESDecryptString(this.Token, passphare);
+      } catch (error) {}
+   }
 }
 class GitHub {
-   static Create(githubObjectOrJson) {
-      return new GitHub(githubObjectOrJson);
+   static Create(githubObjectOrJson, passphare = undefined) {
+      let github = new GitHub(githubObjectOrJson);
+      if (typeof passphare === "string" && passphare.length > 0) github.AESDecryptForce(passphare);
+      return github;
    }
    constructor(githubObjectOrJson) {
       if (typeof githubObjectOrJson === "string" && githubObjectOrJson.length > 0) {
@@ -18631,6 +18640,11 @@ class GitHub {
          throw error;
       }
    }
+   AESDecryptForce(passphare) {
+      try {
+         this.Token = oCrytoJS.AESDecryptString(this.Token, passphare);
+      } catch (error) {}
+   }
 }
 
 const oExecuter = Executer.LoadoExecuter();
@@ -18638,41 +18652,52 @@ const JSONConfig = oExecuter.Config;
 if (JSONConfig.IsShowConfig) console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
 (async () => {
-   const directoryPath = path.dirname(path.dirname(__filename));
-   const prefix = ".libraryfile.json";
-   var pathFiles = oUtils.GetAllFiles(directoryPath, [], [...JSONConfig.ExcludeDirectoryPaths, ...JSONConfig.ExcludeFilePaths]);
-   pathFiles = pathFiles.filter((pathFile) => pathFile.endsWith(prefix));
-   let oGithub = GitHub.Create(JSONConfig.FromRepo);
-   oGithub.Token = oCrytoJS.AESDecryptString(oGithub.Token, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-   for (let i = 0; i < pathFiles.length; i++) {
-      let curFile = pathFiles[i];
-      const objFile = JSON.parse(fs.readFileSync(curFile, "utf8"));
-      let curPathGit = curFile.replaceAll(directoryPath, "").replaceAll("\\", "/").replaceAll(prefix, "");
-      var getBlobs = await oGithub.DownloadBlobs(curPathGit);
-      const { content, encoding } = getBlobs;
-      let checkMd5Blobs = false;
-      if (encoding === "base64" && content.length > 0) {
-         let buffer = Buffer.from(content, "base64");
-         let md5Buffer = oCrytoJS.HashMD5Buffer(buffer);
-         checkMd5Blobs = md5Buffer === objFile.FileHashMD5.toUpperCase();
-         if (checkMd5Blobs === true) {
-            let objComment = ["AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce((result, el, i, arr) => {
+   try {
+      const directoryPath = path.dirname(path.dirname(__filename));
+      const prefix = ".libraryfile.json";
+      var pathFiles = oUtils.GetAllFiles(directoryPath, [], [...JSONConfig.ExcludeDirectoryPaths, ...JSONConfig.ExcludeFilePaths]);
+      pathFiles = pathFiles.filter((pathFile) => pathFile.endsWith(prefix));
+      let oGithub = GitHub.Create(JSONConfig.FromRepo, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+      const createCommitComment = (objLibraryFile) => {
+         return ["AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce(
+            (result, el, i, arr) => {
                if (el.includes(".")) {
                   var split = el.split(".");
-                  result[split[1]] = objFile[split[0]][split[1]];
+                  result[split[1]] = objLibraryFile[split[0]][split[1]];
                } else {
-                  result[el] = objFile[el];
+                  result[el] = objLibraryFile[el];
                }
                return result;
-            }, {});
-            for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
-               let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j]);
-               oAzureGit.Token = oCrytoJS.AESDecryptString(oAzureGit.Token, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-               let commit = await oAzureGit.GitCommitBase64s([{ pathGit: curPathGit, base64: content }], `${JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE};${JSON.stringify(objComment)}`);
-               console.log({ curFile, curPathGit, encoding, checkMd5Blobs, commitUrl: commit.url });
+            },
+            { CommitMessage: JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE }
+         );
+      };
+      for (let i = 0; i < pathFiles.length; i++) {
+         let curFile = pathFiles[i];
+         const objFile = JSON.parse(fs.readFileSync(curFile, "utf8"));
+         let curPathGit = curFile.replaceAll(directoryPath, "").replaceAll("\\", "/").replaceAll(prefix, "");
+         var getBlobs = await oGithub.DownloadBlobs(curPathGit);
+         const { content, encoding } = getBlobs;
+         let checkMd5Blobs = false;
+         if (encoding === "base64" && content.length > 0) {
+            let buffer = Buffer.from(content, "base64");
+            checkMd5Blobs = oCrytoJS.HashMD5Buffer(buffer) === objFile.FileHashMD5.toUpperCase();
+            if (checkMd5Blobs === true) {
+               for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
+                  let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+                  let uploadItems = [{ pathGit: curPathGit, base64: content }];
+                  try {
+                     let commit = await oAzureGit.GitCommitBase64s(uploadItems, JSON.stringify(createCommitComment(objFile)));
+                     console.log({ curFile, curPathGit, encoding, checkMd5Blobs, commitUrl: commit.url });
+                  } catch (error) {
+                     console.error(error);
+                  }
+               }
             }
          }
       }
+   } catch (error) {
+      console.error(error);
    }
 })();
 return;
