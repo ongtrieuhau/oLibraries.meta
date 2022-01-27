@@ -18543,6 +18543,72 @@ class Azure {
       }
    }
 }
+class GitHub {
+   static Create(githubObjectOrJson) {
+      return new GitHub(githubObjectOrJson);
+   }
+   constructor(githubObjectOrJson) {
+      if (typeof githubObjectOrJson === "string" && githubObjectOrJson.length > 0) {
+         githubObjectOrJson = JSON.parse(githubObjectOrJson);
+      }
+      ["Owner", "Project", "Repo", "Token"].forEach((field) => {
+         this[field] = oUtils.GetValueProperty(githubObjectOrJson, field, "");
+      });
+      if (this.Project === "") this.Project = this.Repo;
+      if (this.Repo === "") this.Repo = this.Project;
+   }
+   async DownloadBlobs(pathGit) {
+      try {
+         let headers = oUtils.CreateFetchHeaders(this.Token, "");
+         const createUrl = (actionPath) => {
+            if ((actionPath + "").startsWith("/")) actionPath = actionPath.substring(1);
+            return `https://api.github.com/repos/${this.Owner}/${this.Repo}/${actionPath}`;
+         };
+         const fetchData = async (url, method = "GET", data = undefined) => {
+            try {
+               return await oAxios.Fetch({ url: url, headers: headers, method: method, data: data });
+            } catch (error) {
+               throw error;
+            }
+         };
+         const getLastShaPathFile = async (pathGit) => {
+            try {
+               let commits = await fetchData(createUrl(`commits?path=${pathGit}&page=1&per_page=1`));
+               if (typeof commits[0] !== "undefined" && "url" in commits[0]) {
+                  let commit = await fetchData(commits[0]["url"]);
+                  if ("files" in commit) {
+                     var exists = commit.files.find((file) => pathGit.endsWith(file.filename));
+                     if (typeof exists !== "undefined") return oUtils.GetValueProperty(exists, "sha", "");
+                  }
+               }
+               return "";
+            } catch (error) {
+               throw error;
+            }
+         };
+         const getBlobsBySha = async (pathGit) => {
+            try {
+               let sha = await getLastShaPathFile(pathGit);
+               if (typeof sha === "string" && sha.length > 0) {
+                  return await fetchData(createUrl(`git/blobs/${sha}`));
+               }
+               return undefined;
+            } catch (error) {
+               throw error;
+            }
+         };
+         return await getBlobsBySha(pathGit);
+      } catch (error) {
+         throw error;
+      }
+   }
+}
+/* (async () => {
+   let oGithub = GitHub.Create(JSON.stringify({ Owner: "oth-dhghospital", Project: "oLibraries", token: "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" }));
+   console.log(await oGithub.DownloadBlobs(`/workflowExecuter/flowNodeJs.js`));
+})();
+return; */
+
 const oExecuter = Executer.LoadoExecuter();
 console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
@@ -18567,6 +18633,7 @@ fs.readdir(
          }
          // Do whatever you want to do with the file
          if (file.isFile() === true && file.name.endsWith(".libraryfile.json")) {
+            console.log(JSON.stringify(file));
             fs.readFile(file.name, "utf8", (err, data) => {
                if (err) {
                   console.error(err);
@@ -18574,12 +18641,13 @@ fs.readdir(
                } else if (data) {
                   let objFile = JSON.parse(data);
                   console.log(objFile);
-
-                  var url = "https://api.github.com/repos/oth-dhghospital/oLibraries/contents/OTH.TestBuildEvent.dll";
+                  var pathGit = file.name.replace(".libraryfile.json", "");
+                  var url = `https://api.github.com/repos/oth-dhghospital/oLibraries/contents/${pathGit}`;
 
                   let githubToken = oCrytoJS.AESDecryptString(oExecuter.Config.MainLibraryRepo.GithubToken, oExecuter.Config.GITHUBSECRETS.OENV_AESPASSPHRASE);
                   let oAz = Azure.Create(JSON.stringify({ Owner: "o6s220126", Project: "test.privategit", token: "t5a7lxtxttf565tafs4qthbkex4jqsoolgnliieyixka6pidsxfa" }));
-                  oAxios.GetData({ url: url, GithubToken: githubToken }).then((data) => {
+                  let oGithub = GitHub.Create(JSON.stringify({ Owner: "oth-dhghospital", Project: "oLibraries", token: githubToken }));
+                  oGithub.DownloadBlobs(`${pathGit}`).then((data) => {
                      const { content, encoding } = data;
                      if (encoding === "base64" && content.length > 0) {
                         let buffer = Buffer.from(content, "base64");
@@ -18589,10 +18657,20 @@ fs.readdir(
                         console.log("md5Buffer:", md5Buffer);
                         console.log("FileHashMD5:", objFile.FileHashMD5);
                         if (compare === true) {
-                           fs.writeFile("OTH.TestBuildEvent.dll", buffer, (err) => {
+                           fs.writeFile(pathGit, buffer, (err) => {
                               if (err) throw err;
                            });
-                           oAz.GitCommitBase64s([{ pathGit: "/OTH.TestBuildEvent.dll", base64: content }], oExecuter.Config.GITHUBSECRETS.OENV_COMMITMESSAGE);
+                           //array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+                           let objComment = ["AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce((result, el, i, arr) => {
+                              if (el.includes(".")) {
+                                 var split = el.split(".");
+                                 result[split[1]] = objFile[split[0]][split[1]];
+                              } else {
+                                 result[el] = objFile[el];
+                              }
+                              return result;
+                           }, {});
+                           oAz.GitCommitBase64s([{ pathGit: pathGit, base64: content }], `${oExecuter.Config.GITHUBSECRETS.OENV_COMMITMESSAGE};${JSON.stringify(objComment)}`);
                         }
                      }
                   });
