@@ -192,7 +192,6 @@ class Azure {
    }
    async GitCommitBase64s(uploadItems, comment = "") {
       try {
-         comment = `${process.env.GITHUB_REPOSITORY};${comment}`;
          let headers = oUtils.CreateFetchHeaders(this.Token, "");
          const baseUrl = () => "https://dev.azure.com/" + this.Owner + "/" + this.Project + "/_apis/git/repositories/" + this.Repo + "/";
          const createUrl = (actionPath) =>
@@ -350,7 +349,7 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
                }
                return result;
             },
-            { CommitMessage: JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE }
+            { CommitMessage: JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE, GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY }
          );
       };
       for (let i = 0; i < pathFiles.length; i++) {
