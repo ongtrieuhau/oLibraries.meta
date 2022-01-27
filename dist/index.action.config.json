@@ -1,8 +1,17 @@
 {
-   "MainLibraryRepo": {
-      "GithubOwner": "oth-dhghospital",
-      "GithubRepo": "oLibraries",
-      "GithubToken": "U2FsdGVkX1+dvjeZus9hakS7pw71G8URj9WDzm9iPy5y5Qk2XrjENKEH8CkVmO1/8XZXUTAtPPjzD9Bd4tlLVQ=="
+   "FromRepo": {
+      "Owner": "oth-dhghospital",
+      "Repo": "oLibraries",
+      "Token": "U2FsdGVkX1+dvjeZus9hakS7pw71G8URj9WDzm9iPy5y5Qk2XrjENKEH8CkVmO1/8XZXUTAtPPjzD9Bd4tlLVQ=="
    },
-   "IsShowConfig": false
+   "ToAzureGits": [
+      {
+         "Owner": "o6s220126",
+         "Project": "test.publicgit",
+         "Token": "U2FsdGVkX18rfRi9AdY18Wc2fMI9I8s4gjwWqXxhH6+3aI/Exx26qB9iwhgqOt9XRQ2+5DZjBpKXJ2Br1CktI9RPMexK8pZYpeS2JuXMcCM="
+      }
+   ],
+   "IsShowConfig": false,
+   "ExcludeDirectoryPaths": ["node_modules/", "dist/", ".git/", "source/", ".github/"],
+   "ExcludeFilePaths": ["package.json", "package-lock.json", ".gitignore"]
 }

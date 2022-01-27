@@ -18413,20 +18413,29 @@ var oUtils = (() => {
       if (typeof basicToken === "string" && basicToken.length > 0) return "Basic " + Buffer.from(":" + basicToken).toString("base64");
       else return `Bearer ${access_token}`;
    };
+   const toComparePath = (path) => (path + "").toLowerCase().replaceAll("/", "|").replaceAll("\\", "|");
+   const continueAddPath = (excludePaths = [], path = "") => {
+      let iFind = excludePaths.findIndex((el) => toComparePath(path).includes(toComparePath(el)));
+      if (iFind > -1) return 0;
+      else {
+         if (fs.statSync(path).isFile()) return 1;
+         else {
+            let iFind2 = excludePaths.findIndex((el) => toComparePath(path + "/").includes(toComparePath(el)));
+            if (iFind2 === -1) return 2;
+            return 0;
+         }
+      }
+   };
    const GetAllFiles = function (dirPath, arrayOfFiles, excludePaths = []) {
       files = fs.readdirSync(dirPath);
-
       arrayOfFiles = arrayOfFiles || [];
-
       files.forEach(function (file) {
          let curPath = dirPath + "/" + file;
-         let isContinue = excludePaths.findIndex((el) => curPath.includes(el)) === -1;
-         if (isContinue) {
-            if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-               arrayOfFiles = GetAllFiles(dirPath + "/" + file, arrayOfFiles);
-            } else {
-               arrayOfFiles.push(path.join(dirPath, "/", file));
-            }
+         let isContinueAdd = continueAddPath(excludePaths, curPath);
+         if (isContinueAdd === 1) {
+            arrayOfFiles.push(path.join(dirPath, "/", file));
+         } else if (isContinueAdd === 2) {
+            arrayOfFiles = GetAllFiles(dirPath + "/" + file, arrayOfFiles, excludePaths);
          }
       });
 
@@ -18625,80 +18634,48 @@ class GitHub {
 }
 
 const oExecuter = Executer.LoadoExecuter();
-if (oExecuter.IsShowConfig) console.log(oExecuter);
+const JSONConfig = oExecuter.Config;
+if (JSONConfig.IsShowConfig) console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
-const directoryPath = ".\\";
-const allFiles = oUtils.GetAllFiles(directoryPath, [], ["node_modules", "dist", ".git"]);
-console.log(allFiles);
-return;
-
-//passsing directoryPath and callback function
-fs.readdir(
-   directoryPath,
-   {
-      withFileTypes: true,
-   },
-   function (err, files) {
-      //handling error
-      if (err) {
-         return console.log("Unable to scan directory: " + err);
-      }
-      //listing all files using forEach
-      files.forEach(function (file) {
-         if (file.isFile() && file.name.endsWith(".env")) {
-            fs.readFile(file.name, "utf8", (err, data) => {
-               console.log(data);
-            });
-         }
-         // Do whatever you want to do with the file
-         if (file.isFile() === true && file.name.endsWith(".libraryfile.json")) {
-            console.log(JSON.stringify(file));
-            fs.readFile(file.name, "utf8", (err, data) => {
-               if (err) {
-                  console.error(err);
-                  return;
-               } else if (data) {
-                  let objFile = JSON.parse(data);
-                  console.log(objFile);
-                  var pathGit = file.name.replace(".libraryfile.json", "");
-                  var url = `https://api.github.com/repos/oth-dhghospital/oLibraries/contents/${pathGit}`;
-
-                  let githubToken = oCrytoJS.AESDecryptString(oExecuter.Config.MainLibraryRepo.GithubToken, oExecuter.Config.GITHUBSECRETS.OENV_AESPASSPHRASE);
-                  let oAz = Azure.Create(JSON.stringify({ Owner: "o6s220126", Project: "test.privategit", token: "t5a7lxtxttf565tafs4qthbkex4jqsoolgnliieyixka6pidsxfa" }));
-                  let oGithub = GitHub.Create(JSON.stringify({ Owner: "oth-dhghospital", Project: "oLibraries", token: githubToken }));
-                  oGithub.DownloadBlobs(`${pathGit}`).then((data) => {
-                     const { content, encoding } = data;
-                     if (encoding === "base64" && content.length > 0) {
-                        let buffer = Buffer.from(content, "base64");
-                        let md5Buffer = oCrytoJS.HashMD5Buffer(buffer);
-                        let compare = md5Buffer === objFile.FileHashMD5.toUpperCase();
-                        console.log("compare:", compare);
-                        console.log("md5Buffer:", md5Buffer);
-                        console.log("FileHashMD5:", objFile.FileHashMD5);
-                        if (compare === true) {
-                           fs.writeFile(pathGit, buffer, (err) => {
-                              if (err) throw err;
-                           });
-                           //array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-                           let objComment = ["AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce((result, el, i, arr) => {
-                              if (el.includes(".")) {
-                                 var split = el.split(".");
-                                 result[split[1]] = objFile[split[0]][split[1]];
-                              } else {
-                                 result[el] = objFile[el];
-                              }
-                              return result;
-                           }, {});
-                           oAz.GitCommitBase64s([{ pathGit: pathGit, base64: content }], `${oExecuter.Config.GITHUBSECRETS.OENV_COMMITMESSAGE};${JSON.stringify(objComment)}`);
-                        }
-                     }
-                  });
+(async () => {
+   const directoryPath = path.dirname(path.dirname(__filename));
+   const prefix = ".libraryfile.json";
+   var pathFiles = oUtils.GetAllFiles(directoryPath, [], [...JSONConfig.ExcludeDirectoryPaths, ...JSONConfig.ExcludeFilePaths]);
+   pathFiles = pathFiles.filter((pathFile) => pathFile.endsWith(prefix));
+   let oGithub = GitHub.Create(JSONConfig.FromRepo);
+   oGithub.Token = oCrytoJS.AESDecryptString(oGithub.Token, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+   for (let i = 0; i < pathFiles.length; i++) {
+      let curFile = pathFiles[i];
+      const objFile = JSON.parse(fs.readFileSync(curFile, "utf8"));
+      let curPathGit = curFile.replaceAll(directoryPath, "").replaceAll("\\", "/").replaceAll(prefix, "");
+      var getBlobs = await oGithub.DownloadBlobs(curPathGit);
+      const { content, encoding } = getBlobs;
+      let checkMd5Blobs = false;
+      if (encoding === "base64" && content.length > 0) {
+         let buffer = Buffer.from(content, "base64");
+         let md5Buffer = oCrytoJS.HashMD5Buffer(buffer);
+         checkMd5Blobs = md5Buffer === objFile.FileHashMD5.toUpperCase();
+         if (checkMd5Blobs === true) {
+            let objComment = ["AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce((result, el, i, arr) => {
+               if (el.includes(".")) {
+                  var split = el.split(".");
+                  result[split[1]] = objFile[split[0]][split[1]];
+               } else {
+                  result[el] = objFile[el];
                }
-            });
+               return result;
+            }, {});
+            for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
+               let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j]);
+               oAzureGit.Token = oCrytoJS.AESDecryptString(oAzureGit.Token, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+               await oAzureGit.GitCommitBase64s([{ pathGit: curPathGit, base64: content }], `${JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE};${JSON.stringify(objComment)}`);
+            }
          }
-      });
+      }
+      console.log({ curFile, curPathGit, oGithub, encoding, checkMd5Blobs });
    }
-);
+})();
+return;
 
 })();
 
