@@ -94,6 +94,25 @@ var oUtils = (() => {
       if (typeof basicToken === "string" && basicToken.length > 0) return "Basic " + Buffer.from(":" + basicToken).toString("base64");
       else return `Bearer ${access_token}`;
    };
+   const GetAllFiles = function (dirPath, arrayOfFiles, excludePaths = []) {
+      files = fs.readdirSync(dirPath);
+
+      arrayOfFiles = arrayOfFiles || [];
+
+      files.forEach(function (file) {
+         let curPath = dirPath + "/" + file;
+         let isContinue = excludePaths.findIndex((el) => curPath.includes(el)) === -1;
+         if (isContinue) {
+            if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+               arrayOfFiles = GetAllFiles(dirPath + "/" + file, arrayOfFiles);
+            } else {
+               arrayOfFiles.push(path.join(dirPath, "/", file));
+            }
+         }
+      });
+
+      return arrayOfFiles;
+   };
    return {
       GetValueProperty: (obj, field, defaultValue = undefined) => {
          let existsField = Object.keys(obj).find((key) => key.toLowerCase() === field.toLowerCase());
@@ -106,6 +125,7 @@ var oUtils = (() => {
             Authorization: CreateAuthorization(basicToken, access_token),
          };
       },
+      GetAllFiles: GetAllFiles,
    };
 })();
 
@@ -284,16 +304,15 @@ class GitHub {
       }
    }
 }
-/* (async () => {
-   let oGithub = GitHub.Create(JSON.stringify({ Owner: "oth-dhghospital", Project: "oLibraries", token: "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" }));
-   console.log(await oGithub.DownloadBlobs(`/workflowExecuter/flowNodeJs.js`));
-})();
-return; */
 
 const oExecuter = Executer.LoadoExecuter();
-console.log(oExecuter);
+if (oExecuter.IsShowConfig) console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
 const directoryPath = ".\\";
+const allFiles = oUtils.GetAllFiles(directoryPath, [], ["node_modules", "dist", ".git"]);
+console.log(allFiles);
+return;
+
 //passsing directoryPath and callback function
 fs.readdir(
    directoryPath,
