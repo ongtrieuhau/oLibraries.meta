@@ -9,6 +9,11 @@
          "Owner": "o6s220126",
          "Project": "test.publicgit",
          "Token": "U2FsdGVkX18rfRi9AdY18Wc2fMI9I8s4gjwWqXxhH6+3aI/Exx26qB9iwhgqOt9XRQ2+5DZjBpKXJ2Br1CktI9RPMexK8pZYpeS2JuXMcCM="
+      },
+      {
+         "Owner": "o6s220126",
+         "Project": "test.privategit",
+         "Token": "U2FsdGVkX18rfRi9AdY18Wc2fMI9I8s4gjwWqXxhH6+3aI/Exx26qB9iwhgqOt9XRQ2+5DZjBpKXJ2Br1CktI9RPMexK8pZYpeS2JuXMcCM="
       }
    ],
    "IsShowConfig": false,

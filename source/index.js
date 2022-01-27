@@ -349,11 +349,11 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
             for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
                let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j]);
                oAzureGit.Token = oCrytoJS.AESDecryptString(oAzureGit.Token, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-               await oAzureGit.GitCommitBase64s([{ pathGit: curPathGit, base64: content }], `${JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE};${JSON.stringify(objComment)}`);
+               let commit = await oAzureGit.GitCommitBase64s([{ pathGit: curPathGit, base64: content }], `${JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE};${JSON.stringify(objComment)}`);
+               console.log({ curFile, curPathGit, encoding, checkMd5Blobs, commitUrl: commit.url });
             }
          }
       }
-      console.log({ curFile, curPathGit, oGithub, encoding, checkMd5Blobs });
    }
 })();
 return;
