@@ -18658,7 +18658,7 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
       pathFiles = pathFiles.filter((pathFile) => pathFile.endsWith(prefix));
       let oGithub = GitHub.Create(JSONConfig.FromRepo, JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
       const createCommitComment = (objLibraryFile) => {
-         return ["AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce(
+         return ["OriginalFilename", "AssemblyFullName", "FileHashMD5", "FileHashSHA1", "IsExe", "FileTime.CreationTime"].reduce(
             (result, el, i, arr) => {
                if (el.includes(".")) {
                   var split = el.split(".");
@@ -18682,14 +18682,18 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
             let buffer = Buffer.from(content, "base64");
             checkMd5Blobs = oCrytoJS.HashMD5Buffer(buffer) === objFile.FileHashMD5.toUpperCase();
             if (checkMd5Blobs === true) {
-               for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
-                  let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-                  let uploadItems = [{ pathGit: curPathGit, base64: content }];
-                  try {
-                     let commit = await oAzureGit.GitCommitBase64s(uploadItems, JSON.stringify(createCommitComment(objFile)));
-                     console.log({ curFile, curPathGit, encoding, checkMd5Blobs, commitUrl: commit.url });
-                  } catch (error) {
-                     console.error(error);
+               let uploadNameFiles = [curPathGit, objFile.FileHashMD5, objFile.FileHashSHA1, objFile.AssemblyFullName, objFile.AssemblyFullNameMD5, objFile.AssemblyFullNameSHA1];
+               for (let k = 0; k < uploadNameFiles.length; k++) {
+                  let uploadNameFile = uploadNameFiles[k];
+                  for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
+                     let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+                     let uploadItems = [{ pathGit: uploadNameFile, base64: content }];
+                     try {
+                        let commit = await oAzureGit.GitCommitBase64s(uploadItems, JSON.stringify(createCommitComment(objFile)));
+                        console.log({ curFile, curPathGit, encoding, checkMd5Blobs, uploadNameFile, commitUrl: commit.url });
+                     } catch (error) {
+                        console.error(error);
+                     }
                   }
                }
             }
