@@ -6,6 +6,8 @@ jobs:
       env:
          OENV_AESPASSPHRASE: ${{ secrets.OENV_AESPASSPHRASE }}
          OENV_COMMITMESSAGE: ${{ github.event.head_commit.message }}
+         OENV_GITHUB: ${{ github }}
+         OENV_GITHUB_EVENT: ${{ github.event }}
       name: Analyze repository
       steps:
          #  - name: create env file

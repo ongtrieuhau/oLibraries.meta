@@ -331,6 +331,7 @@ const oExecuter = Executer.LoadoExecuter();
 const JSONConfig = oExecuter.Config;
 if (JSONConfig.IsShowConfig) console.log(oExecuter);
 var crytoVar = "BẮT ĐẦU THỰC HIỆN";
+return;
 (async () => {
    try {
       const directoryPath = path.dirname(path.dirname(__filename));
