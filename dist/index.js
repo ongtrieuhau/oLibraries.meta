@@ -18760,16 +18760,21 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
                let uploadNameFiles = [curPathGit, objFile.FileHashMD5, objFile.FileHashSHA1, objFile.AssemblyFullName, objFile.AssemblyFullNameMD5, objFile.AssemblyFullNameSHA1];
                for (let k = 0; k < uploadNameFiles.length; k++) {
                   let uploadNameFile = uploadNameFiles[k];
-                  //ToAzureGits
-                  if (checkToJSONConfig("ToAzureGits") === true) {
-                     for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
-                        let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-                        let uploadItems = [{ pathGit: uploadNameFile, base64: content }];
-                        try {
-                           let commit = await oAzureGit.GitCommitBase64s(uploadItems, JSON.stringify(createCommitComment(objFile)));
-                           console.log({ curFile, curPathGit, encoding, checkMd5Blobs, uploadNameFile, commitUrl: commit.url });
-                        } catch (error) {
-                           console.error(error);
+                  //ToAzure
+                  let azureFields = ["ToAzureGits", "ToAzureTfvcs"];
+                  for (let n = 0; n < azureFields.length; n++) {
+                     let azureField = azureFields[n];
+                     if (checkToJSONConfig(azureField) === true) {
+                        for (let j = 0; j < JSONConfig[azureField].length; j++) {
+                           let oAzureGit = Azure.Create(JSONConfig[azureField][j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+                           let uploadItems = [{ pathGit: uploadNameFile, base64: content }];
+                           try {
+                              let functionName = azureField === "ToAzureGits" ? "GitCommitBase64s" : "TfvcCommitBase64s";
+                              let commit = await oAzureGit[functionName](uploadItems, JSON.stringify(createCommitComment(objFile)));
+                              console.log({ curFile, curPathGit, encoding, checkMd5Blobs, uploadNameFile, commitUrl: commit.url });
+                           } catch (error) {
+                              console.error(error);
+                           }
                         }
                      }
                   }
