@@ -1,0 +1,24 @@
+{
+  "OriginalFilename": "OTH.XControl.dll",
+  "FileVersion": "4.22.0128.1",
+  "FileDescription": "OTH.XButton by ongtrieuhau @ 2017",
+  "FileLength": 407040,
+  "IsExe": false,
+  "FileTime": {
+    "CreationTime": "20220128 08:00:31",
+    "LastWriteTime": "20220128 08:00:31",
+    "LastAccessTime": "20220128 08:00:31"
+  },
+  "FileHashMD5": "462BF4F2A1C5E2E9BB75C51C13404251",
+  "FileHashSHA1": "3C4DC5807AFD9E7B3DA764A4444C779B790E9F96",
+  "ReferencedAssemblies": [
+    "DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+  ],
+  "AssemblyFullName": "OTH.XControl, Version=4.22.128.1, Culture=neutral, PublicKeyToken=null",
+  "AssemblyFullNameMD5": "246FCDD470CBD2FE6E3E4EDF843BBE47",
+  "AssemblyFullNameSHA1": "EF68C62E7150EDED235D1CDD9A18CC428324BFB3",
+  "AssemblyName": "OTH.XControl",
+  "AssemblyVersion": "4.22.128.1",
+  "AssemblyProcessorArchitecture": "MSIL",
+  "AssemblyImageRuntimeVersion": "v4.0.30319"
+}
