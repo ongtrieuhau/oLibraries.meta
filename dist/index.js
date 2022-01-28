@@ -18577,10 +18577,74 @@ class Azure {
          throw error;
       }
    }
+   async TfvcCommitBase64s(uploadItems, comment = "") {
+      try {
+         let headers = oUtils.CreateFetchHeaders(this.Token, "");
+         const resolvePathGit = (pathGit) => {
+            try {
+               let result = "/" + pathGit + "/";
+               let itemSplit = result.split("/").filter((el, i, els) => {
+                  return el !== "" && el !== "$";
+               });
+               result = "$/" + this.Project + "/" + itemSplit.join("/");
+               return result;
+            } catch (error) {
+               throw error;
+            }
+         };
+         const createUrl = (actionPath) => {
+            if ((actionPath + "").startsWith("/")) actionPath = actionPath.substring(1);
+            return `https://dev.azure.com/${this.Owner}/${this.Project}/_apis/tfvc/${actionPath}`;
+         };
+         const fetchData = async (url, method = "GET", data = undefined) => {
+            try {
+               return await oAxios.Fetch({ url: url, headers: headers, method: method, data: data });
+            } catch (error) {
+               throw error;
+            }
+         };
+         const getItemVersion = async (pathGit) => {
+            try {
+               let data = await fetchData(createUrl(`items?api-version=5.0&$format=json&path=${resolvePathGit(pathGit)}`));
+               return oUtils.GetValueProperty(data, "version", "");
+            } catch (error) {
+               return "";
+            }
+         };
+         let body = {
+            comment: comment,
+            changes: [],
+         };
+         for (let i = 0; i < uploadItems.length; i++) {
+            let uploadItem = uploadItems[i];
+            let pathGit = oUtils.GetValueProperty(uploadItem, "PathGit", "");
+            let itemVersion = await getItemVersion(pathGit);
+            let change = {
+               item: {
+                  path: resolvePathGit(pathGit),
+                  contentMetadata: {
+                     encoding: 65001,
+                  },
+                  version: itemVersion === "" ? undefined : itemVersion,
+               },
+               changeType: itemVersion === "" ? "add" : "edit",
+               newContent: {
+                  content: oUtils.GetValueProperty(uploadItem, "Base64", ""),
+                  contentType: "base64Encoded",
+               },
+            };
+            body.changes.push(change);
+         }
+         return await fetchData(createUrl(`changesets?api-version=5.1&$format=json`), "POST", body);
+      } catch (error) {
+         console.error(error.message);
+         throw error;
+      }
+   }
    AESDecryptForce(passphare) {
       try {
          this.Token = oCrytoJS.AESDecryptString(this.Token, passphare);
-      } catch (error) {}
+      } catch {}
    }
 }
 class GitHub {
@@ -18650,7 +18714,13 @@ class GitHub {
       } catch (error) {}
    }
 }
-
+(async () => {
+   let oAz = Azure.Create({ Owner: "o6s220126", Repo: "me.privatetfvc", Token: "t5a7lxtxttf565tafs4qthbkex4jqsoolgnliieyixka6pidsxfa" });
+   let uploadItem = { PathGit: "/thuhang.txt", base64: "VGjhu60gaMOgbmc=" };
+   let uploadItem1 = { PathGit: "/thuhang1.txt", base64: "VGjhu60gaMOgbmc=" };
+   console.log(await oAz.TfvcCommitBase64s([uploadItem, uploadItem1], "Thử hàng"));
+})();
+return;
 const oExecuter = Executer.LoadoExecuter();
 const JSONConfig = oExecuter.Config;
 if (JSONConfig.IsShowConfig) console.log(oExecuter);
@@ -18676,6 +18746,13 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
             { CommitMessage: JSONConfig.GITHUBSECRETS.OENV_COMMITMESSAGE, GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY }
          );
       };
+      const checkToJSONConfig = (field) => {
+         let isContinue = oUtils.GetValueProperty(JSONConfig, `Is${field}`, false);
+         if (isContinue) isContinue = field in JSONConfig;
+         if (isContinue) isContinue = Array.isArray(JSONConfig[field]);
+         if (isContinue) isContinue = JSONConfig[field].length > 0;
+         return isContinue;
+      };
       for (let i = 0; i < pathFiles.length; i++) {
          let curFile = pathFiles[i];
          const objFile = JSON.parse(fs.readFileSync(curFile, "utf8"));
@@ -18690,14 +18767,17 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
                let uploadNameFiles = [curPathGit, objFile.FileHashMD5, objFile.FileHashSHA1, objFile.AssemblyFullName, objFile.AssemblyFullNameMD5, objFile.AssemblyFullNameSHA1];
                for (let k = 0; k < uploadNameFiles.length; k++) {
                   let uploadNameFile = uploadNameFiles[k];
-                  for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
-                     let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-                     let uploadItems = [{ pathGit: uploadNameFile, base64: content }];
-                     try {
-                        let commit = await oAzureGit.GitCommitBase64s(uploadItems, JSON.stringify(createCommitComment(objFile)));
-                        console.log({ curFile, curPathGit, encoding, checkMd5Blobs, uploadNameFile, commitUrl: commit.url });
-                     } catch (error) {
-                        console.error(error);
+                  //ToAzureGits
+                  if (checkToJSONConfig("ToAzureGits") === true) {
+                     for (let j = 0; j < JSONConfig.ToAzureGits.length; j++) {
+                        let oAzureGit = Azure.Create(JSONConfig.ToAzureGits[j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
+                        let uploadItems = [{ pathGit: uploadNameFile, base64: content }];
+                        try {
+                           let commit = await oAzureGit.GitCommitBase64s(uploadItems, JSON.stringify(createCommitComment(objFile)));
+                           console.log({ curFile, curPathGit, encoding, checkMd5Blobs, uploadNameFile, commitUrl: commit.url });
+                        } catch (error) {
+                           console.error(error);
+                        }
                      }
                   }
                }
