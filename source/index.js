@@ -395,13 +395,6 @@ class GitHub {
       } catch (error) {}
    }
 }
-(async () => {
-   let oAz = Azure.Create({ Owner: "o6s220126", Repo: "me.privatetfvc", Token: "t5a7lxtxttf565tafs4qthbkex4jqsoolgnliieyixka6pidsxfa" });
-   let uploadItem = { PathGit: "/thuhang.txt", base64: "VGjhu60gaMOgbmc=" };
-   let uploadItem1 = { PathGit: "/thuhang1.txt", base64: "VGjhu60gaMOgbmc=" };
-   console.log(await oAz.TfvcCommitBase64s([uploadItem, uploadItem1], "Thử hàng"));
-})();
-return;
 const oExecuter = Executer.LoadoExecuter();
 const JSONConfig = oExecuter.Config;
 if (JSONConfig.IsShowConfig) console.log(oExecuter);
