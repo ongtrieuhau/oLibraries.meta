@@ -357,7 +357,7 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
          const objFile = JSON.parse(fs.readFileSync(curFile, "utf8"));
          let curPathGit = curFile.replaceAll(directoryPath, "").replaceAll("\\", "/").replaceAll(prefix, "");
          var getBlobs = await oGithub.DownloadBlobs(curPathGit);
-         const { content, encoding } = getBlobs;
+         const { content, encoding } = getBlobs || {};
          let checkMd5Blobs = false;
          if (encoding === "base64" && content.length > 0) {
             let buffer = Buffer.from(content, "base64");
