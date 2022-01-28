@@ -1,0 +1,1050 @@
+2022-01-28T01:12:53.3281021Z Waiting for a runner to pick up this job...
+2022-01-28T01:12:54.0603529Z Job is waiting for a hosted runner to come online.
+2022-01-28T01:12:59.1704719Z Job is about to start running on the hosted runner: Hosted Agent (hosted)
+2022-01-28T01:13:01.8688859Z Current runner version: '2.286.1'
+2022-01-28T01:13:01.8716454Z ##[group]Operating System
+2022-01-28T01:13:01.8716965Z Microsoft Windows Server 2019
+2022-01-28T01:13:01.8717315Z 10.0.17763
+2022-01-28T01:13:01.8717621Z Datacenter
+2022-01-28T01:13:01.8717931Z ##[endgroup]
+2022-01-28T01:13:01.8718273Z ##[group]Virtual Environment
+2022-01-28T01:13:01.8718608Z Environment: windows-2019
+2022-01-28T01:13:01.8718957Z Version: 20220123.1
+2022-01-28T01:13:01.8719568Z Included Software: https://github.com/actions/virtual-environments/blob/win19/20220123.1/images/win/Windows2019-Readme.md
+2022-01-28T01:13:01.8720242Z Image Release: https://github.com/actions/virtual-environments/releases/tag/win19%2F20220123.1
+2022-01-28T01:13:01.8720729Z ##[endgroup]
+2022-01-28T01:13:01.8721107Z ##[group]Virtual Environment Provisioner
+2022-01-28T01:13:01.8721453Z 1.0.0.0-main-20211214-1
+2022-01-28T01:13:01.8721791Z ##[endgroup]
+2022-01-28T01:13:01.8722845Z ##[group]GITHUB_TOKEN Permissions
+2022-01-28T01:13:01.8723659Z Actions: write
+2022-01-28T01:13:01.8724059Z Checks: write
+2022-01-28T01:13:01.8724523Z Contents: write
+2022-01-28T01:13:01.8724814Z Deployments: write
+2022-01-28T01:13:01.8725157Z Discussions: write
+2022-01-28T01:13:01.8725513Z Issues: write
+2022-01-28T01:13:01.8725785Z Metadata: read
+2022-01-28T01:13:01.8726104Z Packages: write
+2022-01-28T01:13:01.8726430Z Pages: write
+2022-01-28T01:13:01.8726714Z PullRequests: write
+2022-01-28T01:13:01.8727118Z RepositoryProjects: write
+2022-01-28T01:13:01.8727493Z SecurityEvents: write
+2022-01-28T01:13:01.8727785Z Statuses: write
+2022-01-28T01:13:01.8728106Z ##[endgroup]
+2022-01-28T01:13:01.8732159Z Secret source: Actions
+2022-01-28T01:13:01.8732709Z Prepare workflow directory
+2022-01-28T01:13:01.9992797Z Prepare all required actions
+2022-01-28T01:13:02.0200303Z Getting action download info
+2022-01-28T01:13:02.2511159Z Download action repository 'actions/checkout@v2' (SHA:ec3a7ce113134d7a93b817d10a8272cb61118579)
+2022-01-28T01:13:03.2604778Z ##[group]Run actions/checkout@v2
+2022-01-28T01:13:03.2605375Z with:
+2022-01-28T01:13:03.2605644Z   repository: o-ngtrieuhau861gmailcom/oLibraries.meta
+2022-01-28T01:13:03.2606249Z   token: ***
+2022-01-28T01:13:03.2606436Z   ssh-strict: true
+2022-01-28T01:13:03.2606642Z   persist-credentials: true
+2022-01-28T01:13:03.2606851Z   clean: true
+2022-01-28T01:13:03.2607037Z   fetch-depth: 1
+2022-01-28T01:13:03.2607214Z   lfs: false
+2022-01-28T01:13:03.2607396Z   submodules: false
+2022-01-28T01:13:03.2607581Z env:
+2022-01-28T01:13:03.2607869Z   OENV_AESPASSPHRASE: ***
+2022-01-28T01:13:03.2608112Z   OENV_COMMITMESSAGE: toJSON(github)
+2022-01-28T01:13:03.2623889Z   OENV_GITHUB_EVENT: {
+  "token": "***",
+  "job": "analyze_repo_meta",
+  "ref": "refs/heads/main",
+  "sha": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+  "repository": "o-ngtrieuhau861gmailcom/oLibraries.meta",
+  "repository_owner": "o-ngtrieuhau861gmailcom",
+  "repositoryUrl": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+  "run_id": "1759314756",
+  "run_number": "68",
+  "retention_days": "90",
+  "run_attempt": "1",
+  "actor": "o-ngtrieuhau861gmailcom",
+  "workflow": ".github/workflows/main.yml",
+  "head_ref": "",
+  "base_ref": "",
+  "event_name": "push",
+  "event": {
+    "after": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+    "base_ref": null,
+    "before": "e912cceda9d2c80a707d5ec0ca70fe585c4b57c6",
+    "commits": [
+      {
+        "author": {
+          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+          "name": "Ông Triệu Hậu",
+          "username": "o-ngtrieuhau861gmailcom"
+        },
+        "committer": {
+          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+          "name": "Ông Triệu Hậu",
+          "username": "o-ngtrieuhau861gmailcom"
+        },
+        "distinct": true,
+        "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+        "message": "toJSON(github)",
+        "timestamp": "2022-01-28T08:12:48+07:00",
+        "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",
+        "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"
+      }
+    ],
+    "compare": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/e912cceda9d2...f94aa81d3783",
+    "created": false,
+    "deleted": false,
+    "forced": false,
+    "head_commit": {
+      "author": {
+        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+        "name": "Ông Triệu Hậu",
+        "username": "o-ngtrieuhau861gmailcom"
+      },
+      "committer": {
+        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+        "name": "Ông Triệu Hậu",
+        "username": "o-ngtrieuhau861gmailcom"
+      },
+      "distinct": true,
+      "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+      "message": "toJSON(github)",
+      "timestamp": "2022-01-28T08:12:48+07:00",
+      "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",
+      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"
+    },
+    "pusher": {
+      "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+      "name": "o-ngtrieuhau861gmailcom"
+    },
+    "ref": "refs/heads/main",
+    "repository": {
+      "allow_forking": true,
+      "archive_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/{archive_format}{/ref}",
+      "archived": false,
+      "assignees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/assignees{/user}",
+      "blobs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/blobs{/sha}",
+      "branches_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/branches{/branch}",
+      "clone_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+      "collaborators_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/collaborators{/collaborator}",
+      "comments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/comments{/number}",
+      "commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/commits{/sha}",
+      "compare_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/{base}...{head}",
+      "contents_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contents/{+path}",
+      "contributors_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contributors",
+      "created_at": 1643016303,
+      "default_branch": "main",
+      "deployments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/deployments",
+      "description": null,
+      "disabled": false,
+      "downloads_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/downloads",
+      "events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/events",
+      "fork": false,
+      "forks": 1,
+      "forks_count": 1,
+      "forks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/forks",
+      "full_name": "o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "git_commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/commits{/sha}",
+      "git_refs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/refs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/tags{/sha}",
+      "git_url": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+      "has_downloads": true,
+      "has_issues": true,
+      "has_pages": false,
+      "has_projects": true,
+      "has_wiki": true,
+      "homepage": null,
+      "hooks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/hooks",
+      "html_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "id": 451397257,
+      "is_template": false,
+      "issue_comment_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/comments{/number}",
+      "issue_events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/events{/number}",
+      "issues_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues{/number}",
+      "keys_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/keys{/key_id}",
+      "labels_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/labels{/name}",
+      "language": "JavaScript",
+      "languages_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/languages",
+      "license": null,
+      "master_branch": "main",
+      "merges_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/merges",
+      "milestones_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/milestones{/number}",
+      "mirror_url": null,
+      "name": "oLibraries.meta",
+      "node_id": "R_kgDOGufGiQ",
+      "notifications_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/notifications{?since,all,participating}",
+      "open_issues": 0,
+      "open_issues_count": 0,
+      "owner": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",
+        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+        "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",
+        "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",
+        "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",
+        "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/o-ngtrieuhau861gmailcom",
+        "id": 58720300,
+        "login": "o-ngtrieuhau861gmailcom",
+        "name": "o-ngtrieuhau861gmailcom",
+        "node_id": "MDQ6VXNlcjU4NzIwMzAw",
+        "organizations_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/orgs",
+        "received_events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/received_events",
+        "repos_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/o-ngtrieuhau861gmailcom"
+      },
+      "private": false,
+      "pulls_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/pulls{/number}",
+      "pushed_at": 1643332370,
+      "releases_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/releases{/id}",
+      "size": 976,
+      "ssh_url": "git@github.com:o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+      "stargazers": 0,
+      "stargazers_count": 0,
+      "stargazers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/stargazers",
+      "statuses_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/statuses/{sha}",
+      "subscribers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscribers",
+      "subscription_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscription",
+      "svn_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/tags",
+      "teams_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/teams",
+      "topics": [],
+      "trees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/trees{/sha}",
+      "updated_at": "2022-01-24T09:34:57Z",
+      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "visibility": "public",
+      "watchers": 0,
+      "watchers_count": 0
+    },
+    "sender": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",
+      "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",
+      "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",
+      "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",
+      "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/o-ngtrieuhau861gmailcom",
+      "id": 58720300,
+      "login": "o-ngtrieuhau861gmailcom",
+      "node_id": "MDQ6VXNlcjU4NzIwMzAw",
+      "organizations_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/orgs",
+      "received_events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/received_events",
+      "repos_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/o-ngtrieuhau861gmailcom"
+    }
+  },
+  "server_url": "https://github.com",
+  "api_url": "https://api.github.com",
+  "graphql_url": "https://api.github.com/graphql",
+  "ref_name": "main",
+  "ref_protected": false,
+  "ref_type": "branch",
+  "secret_source": "Actions",
+  "workspace": "D:\\a\\oLibraries.meta\\oLibraries.meta"
+}
+2022-01-28T01:13:03.2638736Z ##[endgroup]
+2022-01-28T01:13:06.0004846Z Syncing repository: o-ngtrieuhau861gmailcom/oLibraries.meta
+2022-01-28T01:13:06.0523603Z ##[group]Getting Git version info
+2022-01-28T01:13:06.0524513Z Working directory is 'D:\a\oLibraries.meta\oLibraries.meta'
+2022-01-28T01:13:06.0846711Z [command]"C:\Program Files\Git\bin\git.exe" version
+2022-01-28T01:13:06.1054044Z git version 2.34.1.windows.1
+2022-01-28T01:13:06.1188638Z ##[endgroup]
+2022-01-28T01:13:06.1194737Z Deleting the contents of 'D:\a\oLibraries.meta\oLibraries.meta'
+2022-01-28T01:13:06.1199050Z ##[group]Initializing the repository
+2022-01-28T01:13:06.1214154Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\oLibraries.meta\oLibraries.meta
+2022-01-28T01:13:06.7993196Z Initialized empty Git repository in D:/a/oLibraries.meta/oLibraries.meta/.git/
+2022-01-28T01:13:06.7994439Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta
+2022-01-28T01:13:06.8003343Z ##[endgroup]
+2022-01-28T01:13:06.8004077Z ##[group]Disabling automatic garbage collection
+2022-01-28T01:13:06.8004657Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2022-01-28T01:13:06.8005264Z ##[endgroup]
+2022-01-28T01:13:06.8021483Z ##[group]Setting up auth
+2022-01-28T01:13:06.8022048Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2022-01-28T01:13:06.8023487Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2022-01-28T01:13:08.3914719Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-01-28T01:13:08.4442235Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2022-01-28T01:13:08.9866021Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2022-01-28T01:13:09.0134254Z ##[endgroup]
+2022-01-28T01:13:09.0134922Z ##[group]Fetching the repository
+2022-01-28T01:13:09.0153925Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +f94aa81d37837a8dcd6eaaf34effd5868ed137a2:refs/remotes/origin/main
+2022-01-28T01:13:10.6633263Z remote: Enumerating objects: 19, done.        
+2022-01-28T01:13:10.6634159Z remote: Counting objects:   5% (1/19)        
+2022-01-28T01:13:10.6634468Z remote: Counting objects:  10% (2/19)        
+2022-01-28T01:13:10.6634765Z remote: Counting objects:  15% (3/19)        
+2022-01-28T01:13:10.6635041Z remote: Counting objects:  21% (4/19)        
+2022-01-28T01:13:10.6635334Z remote: Counting objects:  26% (5/19)        
+2022-01-28T01:13:10.6635626Z remote: Counting objects:  31% (6/19)        
+2022-01-28T01:13:10.6635897Z remote: Counting objects:  36% (7/19)        
+2022-01-28T01:13:10.6636185Z remote: Counting objects:  42% (8/19)        
+2022-01-28T01:13:10.6636554Z remote: Counting objects:  47% (9/19)        
+2022-01-28T01:13:10.6636833Z remote: Counting objects:  52% (10/19)        
+2022-01-28T01:13:10.6637125Z remote: Counting objects:  57% (11/19)        
+2022-01-28T01:13:10.6637415Z remote: Counting objects:  63% (12/19)        
+2022-01-28T01:13:10.6637712Z remote: Counting objects:  68% (13/19)        
+2022-01-28T01:13:10.6638006Z remote: Counting objects:  73% (14/19)        
+2022-01-28T01:13:10.6638290Z remote: Counting objects:  78% (15/19)        
+2022-01-28T01:13:10.6638562Z remote: Counting objects:  84% (16/19)        
+2022-01-28T01:13:10.6638845Z remote: Counting objects:  89% (17/19)        
+2022-01-28T01:13:10.6639129Z remote: Counting objects:  94% (18/19)        
+2022-01-28T01:13:10.6639396Z remote: Counting objects: 100% (19/19)        
+2022-01-28T01:13:10.6639705Z remote: Counting objects: 100% (19/19), done.        
+2022-01-28T01:13:10.6640034Z remote: Compressing objects:   5% (1/17)        
+2022-01-28T01:13:10.6640336Z remote: Compressing objects:  11% (2/17)        
+2022-01-28T01:13:10.6640641Z remote: Compressing objects:  17% (3/17)        
+2022-01-28T01:13:10.6640956Z remote: Compressing objects:  23% (4/17)        
+2022-01-28T01:13:10.6641243Z remote: Compressing objects:  29% (5/17)        
+2022-01-28T01:13:10.6641644Z remote: Compressing objects:  35% (6/17)        
+2022-01-28T01:13:10.6641962Z remote: Compressing objects:  41% (7/17)        
+2022-01-28T01:13:10.6642249Z remote: Compressing objects:  47% (8/17)        
+2022-01-28T01:13:10.6642550Z remote: Compressing objects:  52% (9/17)        
+2022-01-28T01:13:10.6642870Z remote: Compressing objects:  58% (10/17)        
+2022-01-28T01:13:10.6697944Z remote: Compressing objects:  64% (11/17)        
+2022-01-28T01:13:10.6698346Z remote: Compressing objects:  70% (12/17)        
+2022-01-28T01:13:10.6698630Z remote: Compressing objects:  76% (13/17)        
+2022-01-28T01:13:10.6698880Z remote: Compressing objects:  82% (14/17)        
+2022-01-28T01:13:10.6699149Z remote: Compressing objects:  88% (15/17)        
+2022-01-28T01:13:10.6699416Z remote: Compressing objects:  94% (16/17)        
+2022-01-28T01:13:10.6699662Z remote: Compressing objects: 100% (17/17)        
+2022-01-28T01:13:10.6699938Z remote: Compressing objects: 100% (17/17), done.        
+2022-01-28T01:13:10.7970137Z remote: Total 19 (delta 1), reused 10 (delta 0), pack-reused 0        
+2022-01-28T01:13:10.8821325Z From https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta
+2022-01-28T01:13:10.8822419Z  * [new ref]         f94aa81d37837a8dcd6eaaf34effd5868ed137a2 -> origin/main
+2022-01-28T01:13:10.9250258Z ##[endgroup]
+2022-01-28T01:13:10.9251070Z ##[group]Determining the checkout info
+2022-01-28T01:13:10.9253303Z ##[endgroup]
+2022-01-28T01:13:10.9253819Z ##[group]Checking out the ref
+2022-01-28T01:13:10.9269405Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2022-01-28T01:13:10.9851858Z Branch 'main' set up to track remote branch 'main' from 'origin'.
+2022-01-28T01:13:10.9852435Z Switched to a new branch 'main'
+2022-01-28T01:13:10.9891844Z ##[endgroup]
+2022-01-28T01:13:11.0303686Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format='%H'
+2022-01-28T01:13:11.0503328Z 'f94aa81d37837a8dcd6eaaf34effd5868ed137a2'
+2022-01-28T01:13:11.0839778Z ##[group]Run node .\dist\index.js
+2022-01-28T01:13:11.0840633Z [36;1mnode .\dist\index.js[0m
+2022-01-28T01:13:11.0884332Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2022-01-28T01:13:11.0884615Z env:
+2022-01-28T01:13:11.0885100Z   OENV_AESPASSPHRASE: ***
+2022-01-28T01:13:11.0885345Z   OENV_COMMITMESSAGE: toJSON(github)
+2022-01-28T01:13:11.0900951Z   OENV_GITHUB_EVENT: {
+  "token": "***",
+  "job": "analyze_repo_meta",
+  "ref": "refs/heads/main",
+  "sha": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+  "repository": "o-ngtrieuhau861gmailcom/oLibraries.meta",
+  "repository_owner": "o-ngtrieuhau861gmailcom",
+  "repositoryUrl": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+  "run_id": "1759314756",
+  "run_number": "68",
+  "retention_days": "90",
+  "run_attempt": "1",
+  "actor": "o-ngtrieuhau861gmailcom",
+  "workflow": ".github/workflows/main.yml",
+  "head_ref": "",
+  "base_ref": "",
+  "event_name": "push",
+  "event": {
+    "after": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+    "base_ref": null,
+    "before": "e912cceda9d2c80a707d5ec0ca70fe585c4b57c6",
+    "commits": [
+      {
+        "author": {
+          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+          "name": "Ông Triệu Hậu",
+          "username": "o-ngtrieuhau861gmailcom"
+        },
+        "committer": {
+          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+          "name": "Ông Triệu Hậu",
+          "username": "o-ngtrieuhau861gmailcom"
+        },
+        "distinct": true,
+        "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+        "message": "toJSON(github)",
+        "timestamp": "2022-01-28T08:12:48+07:00",
+        "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",
+        "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"
+      }
+    ],
+    "compare": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/e912cceda9d2...f94aa81d3783",
+    "created": false,
+    "deleted": false,
+    "forced": false,
+    "head_commit": {
+      "author": {
+        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+        "name": "Ông Triệu Hậu",
+        "username": "o-ngtrieuhau861gmailcom"
+      },
+      "committer": {
+        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+        "name": "Ông Triệu Hậu",
+        "username": "o-ngtrieuhau861gmailcom"
+      },
+      "distinct": true,
+      "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",
+      "message": "toJSON(github)",
+      "timestamp": "2022-01-28T08:12:48+07:00",
+      "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",
+      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"
+    },
+    "pusher": {
+      "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+      "name": "o-ngtrieuhau861gmailcom"
+    },
+    "ref": "refs/heads/main",
+    "repository": {
+      "allow_forking": true,
+      "archive_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/{archive_format}{/ref}",
+      "archived": false,
+      "assignees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/assignees{/user}",
+      "blobs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/blobs{/sha}",
+      "branches_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/branches{/branch}",
+      "clone_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+      "collaborators_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/collaborators{/collaborator}",
+      "comments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/comments{/number}",
+      "commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/commits{/sha}",
+      "compare_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/{base}...{head}",
+      "contents_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contents/{+path}",
+      "contributors_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contributors",
+      "created_at": 1643016303,
+      "default_branch": "main",
+      "deployments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/deployments",
+      "description": null,
+      "disabled": false,
+      "downloads_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/downloads",
+      "events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/events",
+      "fork": false,
+      "forks": 1,
+      "forks_count": 1,
+      "forks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/forks",
+      "full_name": "o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "git_commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/commits{/sha}",
+      "git_refs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/refs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/tags{/sha}",
+      "git_url": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+      "has_downloads": true,
+      "has_issues": true,
+      "has_pages": false,
+      "has_projects": true,
+      "has_wiki": true,
+      "homepage": null,
+      "hooks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/hooks",
+      "html_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "id": 451397257,
+      "is_template": false,
+      "issue_comment_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/comments{/number}",
+      "issue_events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/events{/number}",
+      "issues_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues{/number}",
+      "keys_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/keys{/key_id}",
+      "labels_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/labels{/name}",
+      "language": "JavaScript",
+      "languages_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/languages",
+      "license": null,
+      "master_branch": "main",
+      "merges_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/merges",
+      "milestones_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/milestones{/number}",
+      "mirror_url": null,
+      "name": "oLibraries.meta",
+      "node_id": "R_kgDOGufGiQ",
+      "notifications_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/notifications{?since,all,participating}",
+      "open_issues": 0,
+      "open_issues_count": 0,
+      "owner": {
+        "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",
+        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",
+        "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",
+        "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",
+        "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",
+        "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",
+        "gravatar_id": "",
+        "html_url": "https://github.com/o-ngtrieuhau861gmailcom",
+        "id": 58720300,
+        "login": "o-ngtrieuhau861gmailcom",
+        "name": "o-ngtrieuhau861gmailcom",
+        "node_id": "MDQ6VXNlcjU4NzIwMzAw",
+        "organizations_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/orgs",
+        "received_events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/received_events",
+        "repos_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/repos",
+        "site_admin": false,
+        "starred_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/subscriptions",
+        "type": "User",
+        "url": "https://api.github.com/users/o-ngtrieuhau861gmailcom"
+      },
+      "private": false,
+      "pulls_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/pulls{/number}",
+      "pushed_at": 1643332370,
+      "releases_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/releases{/id}",
+      "size": 976,
+      "ssh_url": "git@github.com:o-ngtrieuhau861gmailcom/oLibraries.meta.git",
+      "stargazers": 0,
+      "stargazers_count": 0,
+      "stargazers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/stargazers",
+      "statuses_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/statuses/{sha}",
+      "subscribers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscribers",
+      "subscription_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscription",
+      "svn_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/tags",
+      "teams_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/teams",
+      "topics": [],
+      "trees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/trees{/sha}",
+      "updated_at": "2022-01-24T09:34:57Z",
+      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",
+      "visibility": "public",
+      "watchers": 0,
+      "watchers_count": 0
+    },
+    "sender": {
+      "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",
+      "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",
+      "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",
+      "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",
+      "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",
+      "gravatar_id": "",
+      "html_url": "https://github.com/o-ngtrieuhau861gmailcom",
+      "id": 58720300,
+      "login": "o-ngtrieuhau861gmailcom",
+      "node_id": "MDQ6VXNlcjU4NzIwMzAw",
+      "organizations_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/orgs",
+      "received_events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/received_events",
+      "repos_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/repos",
+      "site_admin": false,
+      "starred_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/subscriptions",
+      "type": "User",
+      "url": "https://api.github.com/users/o-ngtrieuhau861gmailcom"
+    }
+  },
+  "server_url": "https://github.com",
+  "api_url": "https://api.github.com",
+  "graphql_url": "https://api.github.com/graphql",
+  "ref_name": "main",
+  "ref_protected": false,
+  "ref_type": "branch",
+  "secret_source": "Actions",
+  "workspace": "D:\\a\\oLibraries.meta\\oLibraries.meta"
+}
+2022-01-28T01:13:11.0914912Z ##[endgroup]
+2022-01-28T01:13:15.1759307Z Executer {
+2022-01-28T01:13:15.1759872Z   __dirname: 'D:\\a\\oLibraries.meta\\oLibraries.meta\\dist',
+2022-01-28T01:13:15.1760367Z   __filename: 'D:\\a\\oLibraries.meta\\oLibraries.meta\\dist\\index.js',
+2022-01-28T01:13:15.1760731Z   env: {
+2022-01-28T01:13:15.1761246Z     ALLUSERSPROFILE: 'C:\\ProgramData',
+2022-01-28T01:13:15.1762002Z     ANDROID_HOME: 'C:\\Android\\android-sdk',
+2022-01-28T01:13:15.1762450Z     ANDROID_NDK_HOME: 'C:\\Android\\android-sdk\\ndk-bundle',
+2022-01-28T01:13:15.1762924Z     ANDROID_NDK_LATEST_HOME: 'C:\\Android\\android-sdk\\ndk\\23.1.7779620',
+2022-01-28T01:13:15.1763394Z     ANDROID_NDK_PATH: 'C:\\Android\\android-sdk\\ndk-bundle',
+2022-01-28T01:13:15.1763835Z     ANDROID_NDK_ROOT: 'C:\\Android\\android-sdk\\ndk-bundle',
+2022-01-28T01:13:15.1764501Z     ANDROID_SDK_ROOT: 'C:\\Android\\android-sdk',
+2022-01-28T01:13:15.1765099Z     ANT_HOME: 'C:\\ProgramData\\chocolatey\\lib\\ant\\tools\\apache-ant-1.10.12',
+2022-01-28T01:13:15.1765606Z     APPDATA: 'C:\\Users\\runneradmin\\AppData\\Roaming',
+2022-01-28T01:13:15.1766060Z     AZURE_EXTENSION_DIR: 'C:\\Program Files\\Common Files\\AzureCliExtensionDirectory',
+2022-01-28T01:13:15.1766523Z     CABAL_DIR: 'C:\\cabal',
+2022-01-28T01:13:15.1766911Z     ChocolateyInstall: 'C:\\ProgramData\\chocolatey',
+2022-01-28T01:13:15.1767448Z     ChromeWebDriver: 'C:\\SeleniumWebDrivers\\ChromeDriver',
+2022-01-28T01:13:15.1767992Z     CI: 'true',
+2022-01-28T01:13:15.1768474Z     COBERTURA_HOME: 'C:\\cobertura-2.1.1',
+2022-01-28T01:13:15.1768908Z     CommonProgramFiles: 'C:\\Program Files\\Common Files',
+2022-01-28T01:13:15.1769358Z     'CommonProgramFiles(x86)': 'C:\\Program Files (x86)\\Common Files',
+2022-01-28T01:13:15.1769808Z     CommonProgramW6432: 'C:\\Program Files\\Common Files',
+2022-01-28T01:13:15.1770208Z     COMPUTERNAME: 'fv-az8-368',
+2022-01-28T01:13:15.1770630Z     ComSpec: 'C:\\Windows\\system32\\cmd.exe',
+2022-01-28T01:13:15.1770978Z     CONDA: 'C:\\Miniconda',
+2022-01-28T01:13:15.1771579Z     DEPLOYMENT_BASEPATH: 'C:\\actions',
+2022-01-28T01:13:15.1771951Z     DOTNET_MULTILEVEL_LOOKUP: '0',
+2022-01-28T01:13:15.1772379Z     DriverData: 'C:\\Windows\\System32\\Drivers\\DriverData',
+2022-01-28T01:13:15.1772831Z     EdgeWebDriver: 'C:\\SeleniumWebDrivers\\EdgeDriver',
+2022-01-28T01:13:15.1773213Z     GCM_INTERACTIVE: 'Never',
+2022-01-28T01:13:15.1773593Z     GeckoWebDriver: 'C:\\SeleniumWebDrivers\\GeckoDriver',
+2022-01-28T01:13:15.1774067Z     GHCUP_INSTALL_BASE_PREFIX: 'C:\\',
+2022-01-28T01:13:15.1774405Z     GHCUP_MSYS2: 'C:\\msys64',
+2022-01-28T01:13:15.1774704Z     GITHUB_ACTION: '__run',
+2022-01-28T01:13:15.1775019Z     GITHUB_ACTIONS: 'true',
+2022-01-28T01:13:15.1775283Z     GITHUB_ACTION_REF: '',
+2022-01-28T01:13:15.1775533Z     GITHUB_ACTION_REPOSITORY: '',
+2022-01-28T01:13:15.1775951Z     GITHUB_ACTOR: 'o-ngtrieuhau861gmailcom',
+2022-01-28T01:13:15.1776385Z     GITHUB_API_URL: 'https://api.github.com',
+2022-01-28T01:13:15.1776722Z     GITHUB_BASE_REF: '',
+2022-01-28T01:13:15.1777338Z     GITHUB_ENV: 'D:\\a\\_temp\\_runner_file_commands\\set_env_ab38518e-b0fc-4cef-bfe0-c2a2d05cb3eb',
+2022-01-28T01:13:15.1779997Z     GITHUB_EVENT_NAME: 'push',
+2022-01-28T01:13:15.1780354Z     GITHUB_EVENT_PATH: 'D:\\a\\_temp\\_github_workflow\\event.json',
+2022-01-28T01:13:15.1780753Z     GITHUB_GRAPHQL_URL: 'https://api.github.com/graphql',
+2022-01-28T01:13:15.1781064Z     GITHUB_HEAD_REF: '',
+2022-01-28T01:13:15.1781329Z     GITHUB_JOB: 'analyze_repo_meta',
+2022-01-28T01:13:15.1781736Z     GITHUB_PATH: 'D:\\a\\_temp\\_runner_file_commands\\add_path_ab38518e-b0fc-4cef-bfe0-c2a2d05cb3eb',
+2022-01-28T01:13:15.1782209Z     GITHUB_REF: 'refs/heads/main',
+2022-01-28T01:13:15.1782469Z     GITHUB_REF_NAME: 'main',
+2022-01-28T01:13:15.1782729Z     GITHUB_REF_PROTECTED: 'false',
+2022-01-28T01:13:15.1782992Z     GITHUB_REF_TYPE: 'branch',
+2022-01-28T01:13:15.1783349Z     GITHUB_REPOSITORY: 'o-ngtrieuhau861gmailcom/oLibraries.meta',
+2022-01-28T01:13:15.1783734Z     GITHUB_REPOSITORY_OWNER: 'o-ngtrieuhau861gmailcom',
+2022-01-28T01:13:15.1784050Z     GITHUB_RETENTION_DAYS: '90',
+2022-01-28T01:13:15.1784308Z     GITHUB_RUN_ATTEMPT: '1',
+2022-01-28T01:13:15.1784543Z     GITHUB_RUN_ID: '1759314756',
+2022-01-28T01:13:15.1784787Z     GITHUB_RUN_NUMBER: '68',
+2022-01-28T01:13:15.1785080Z     GITHUB_SERVER_URL: 'https://github.com',
+2022-01-28T01:13:15.1785418Z     GITHUB_SHA: 'f94aa81d37837a8dcd6eaaf34effd5868ed137a2',
+2022-01-28T01:13:15.1785772Z     GITHUB_WORKFLOW: '.github/workflows/main.yml',
+2022-01-28T01:13:15.1786148Z     GITHUB_WORKSPACE: 'D:\\a\\oLibraries.meta\\oLibraries.meta',
+2022-01-28T01:13:15.1786530Z     GOROOT_1_15_X64: 'C:\\hostedtoolcache\\windows\\go\\1.15.15\\x64',
+2022-01-28T01:13:15.1787112Z     GOROOT_1_16_X64: 'C:\\hostedtoolcache\\windows\\go\\1.16.13\\x64',
+2022-01-28T01:13:15.1787497Z     GOROOT_1_17_X64: 'C:\\hostedtoolcache\\windows\\go\\1.17.6\\x64',
+2022-01-28T01:13:15.1788678Z     GRADLE_HOME: 'C:\\ProgramData\\chocolatey\\lib\\gradle\\tools\\gradle-7.3',
+2022-01-28T01:13:15.1789044Z     HOMEDRIVE: 'C:',
+2022-01-28T01:13:15.1789311Z     HOMEPATH: '\\Users\\runneradmin',
+2022-01-28T01:13:15.1789627Z     IEWebDriver: 'C:\\SeleniumWebDrivers\\IEDriver',
+2022-01-28T01:13:15.1789921Z     ImageOS: 'win19',
+2022-01-28T01:13:15.1790162Z     ImageVersion: '20220123.1',
+2022-01-28T01:13:15.1790529Z     JAVA_HOME: 'C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\8.0.312-7\\x64',
+2022-01-28T01:13:15.1791016Z     JAVA_HOME_11_X64: 'C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\11.0.14-9\\x64',
+2022-01-28T01:13:15.1791484Z     JAVA_HOME_13_X64: 'C:\\hostedtoolcache\\windows\\Java_Adopt_jdk\\13.0.2-8.1\\x64',
+2022-01-28T01:13:15.1791949Z     JAVA_HOME_17_X64: 'C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\17.0.1-12\\x64',
+2022-01-28T01:13:15.1792411Z     JAVA_HOME_8_X64: 'C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\8.0.312-7\\x64',
+2022-01-28T01:13:15.1792839Z     LOCALAPPDATA: 'C:\\Users\\runneradmin\\AppData\\Local',
+2022-01-28T01:13:15.1793163Z     LOGONSERVER: '\\\\fv-az8-368',
+2022-01-28T01:13:15.1793522Z     M2: 'C:\\ProgramData\\chocolatey\\lib\\maven\\apache-maven-3.8.4\\bin',
+2022-01-28T01:13:15.1793888Z     M2_REPO: 'C:\\ProgramData\\m2',
+2022-01-28T01:13:15.1794154Z     MAVEN_OPTS: '-Xms256m',
+2022-01-28T01:13:15.1794625Z     MonAgentClientLocation: 'C:\\Packages\\Plugins\\Microsoft.Azure.Geneva.GenevaMonitoring\\2.33.0.3\\Monitoring\\Agent',
+2022-01-28T01:13:15.1795109Z     npm_config_prefix: 'C:\\npm\\prefix',
+2022-01-28T01:13:15.1795392Z     NUMBER_OF_PROCESSORS: '2',
+2022-01-28T01:13:15.1796048Z     OENV_AESPASSPHRASE: '***',
+2022-01-28T01:13:15.1796341Z     OENV_COMMITMESSAGE: 'toJSON(github)',
+2022-01-28T01:13:15.1796621Z     OENV_GITHUB_EVENT: '{\n' +
+2022-01-28T01:13:15.1797116Z       '  "token": "***",\n' +
+2022-01-28T01:13:15.1797381Z       '  "job": "analyze_repo_meta",\n' +
+2022-01-28T01:13:15.1797658Z       '  "ref": "refs/heads/main",\n' +
+2022-01-28T01:13:15.1797969Z       '  "sha": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1798443Z       '  "repository": "o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1798840Z       '  "repository_owner": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1799272Z       '  "repositoryUrl": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1799641Z       '  "run_id": "1759314756",\n' +
+2022-01-28T01:13:15.1799889Z       '  "run_number": "68",\n' +
+2022-01-28T01:13:15.1800124Z       '  "retention_days": "90",\n' +
+2022-01-28T01:13:15.1800374Z       '  "run_attempt": "1",\n' +
+2022-01-28T01:13:15.1800662Z       '  "actor": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1800979Z       '  "workflow": ".github/workflows/main.yml",\n' +
+2022-01-28T01:13:15.1801271Z       '  "head_ref": "",\n' +
+2022-01-28T01:13:15.1801508Z       '  "base_ref": "",\n' +
+2022-01-28T01:13:15.1801739Z       '  "event_name": "push",\n' +
+2022-01-28T01:13:15.1801982Z       '  "event": {\n' +
+2022-01-28T01:13:15.1802293Z       '    "after": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1802586Z       '    "base_ref": null,\n' +
+2022-01-28T01:13:15.1802909Z       '    "before": "e912cceda9d2c80a707d5ec0ca70fe585c4b57c6",\n' +
+2022-01-28T01:13:15.1803213Z       '    "commits": [\n' +
+2022-01-28T01:13:15.1803416Z       '      {\n' +
+2022-01-28T01:13:15.1803638Z       '        "author": {\n' +
+2022-01-28T01:13:15.1803990Z       '          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1804575Z       '          "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1804896Z       '          "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1805168Z       '        },\n' +
+2022-01-28T01:13:15.1805858Z       '        "committer": {\n' +
+2022-01-28T01:13:15.1806314Z       '          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1806675Z       '          "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1806992Z       '          "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1807263Z       '        },\n' +
+2022-01-28T01:13:15.1807483Z       '        "distinct": true,\n' +
+2022-01-28T01:13:15.1807801Z       '        "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1808191Z       '        "message": "toJSON(github)",\n' +
+2022-01-28T01:13:15.1808481Z       '        "timestamp": "2022-01-28T08:12:48+07:00",\n' +
+2022-01-28T01:13:15.1808832Z       '        "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",\n' +
+2022-01-28T01:13:15.1809349Z       '        "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"\n' +
+2022-01-28T01:13:15.1809756Z       '      }\n' +
+2022-01-28T01:13:15.1809947Z       '    ],\n' +
+2022-01-28T01:13:15.1810356Z       '    "compare": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/e912cceda9d2...f94aa81d3783",\n' +
+2022-01-28T01:13:15.1810741Z       '    "created": false,\n' +
+2022-01-28T01:13:15.1810990Z       '    "deleted": false,\n' +
+2022-01-28T01:13:15.1811236Z       '    "forced": false,\n' +
+2022-01-28T01:13:15.1811465Z       '    "head_commit": {\n' +
+2022-01-28T01:13:15.1811697Z       '      "author": {\n' +
+2022-01-28T01:13:15.1812049Z       '        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1812409Z       '        "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1812727Z       '        "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1812993Z       '      },\n' +
+2022-01-28T01:13:15.1813206Z       '      "committer": {\n' +
+2022-01-28T01:13:15.1813560Z       '        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1813932Z       '        "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1814235Z       '        "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1814501Z       '      },\n' +
+2022-01-28T01:13:15.1814738Z       '      "distinct": true,\n' +
+2022-01-28T01:13:15.1815044Z       '      "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1815367Z       '      "message": "toJSON(github)",\n' +
+2022-01-28T01:13:15.1815663Z       '      "timestamp": "2022-01-28T08:12:48+07:00",\n' +
+2022-01-28T01:13:15.1815991Z       '      "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",\n' +
+2022-01-28T01:13:15.1816543Z       '      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"\n' +
+2022-01-28T01:13:15.1816891Z       '    },\n' +
+2022-01-28T01:13:15.1817070Z       '    "pusher": {\n' +
+2022-01-28T01:13:15.1817382Z       '      "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1817724Z       '      "name": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1817937Z       '    },\n' +
+2022-01-28T01:13:15.1818183Z       '    "ref": "refs/heads/main",\n' +
+2022-01-28T01:13:15.1818409Z       '    "repository": {\n' +
+2022-01-28T01:13:15.1818626Z       '      "allow_forking": true,\n' +
+2022-01-28T01:13:15.1819016Z       '      "archive_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/{archive_format}{/ref}",\n' +
+2022-01-28T01:13:15.1819377Z       '      "archived": false,\n' +
+2022-01-28T01:13:15.1819740Z       '      "assignees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/assignees{/user}",\n' +
+2022-01-28T01:13:15.1820233Z       '      "blobs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/blobs{/sha}",\n' +
+2022-01-28T01:13:15.1820803Z       '      "branches_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/branches{/branch}",\n' +
+2022-01-28T01:13:15.1821306Z       '      "clone_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1821807Z       '      "collaborators_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/collaborators{/collaborator}",\n' +
+2022-01-28T01:13:15.1822338Z       '      "comments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/comments{/number}",\n' +
+2022-01-28T01:13:15.1822829Z       '      "commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/commits{/sha}",\n' +
+2022-01-28T01:13:15.1823313Z       '      "compare_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/{base}...{head}",\n' +
+2022-01-28T01:13:15.1823809Z       '      "contents_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contents/{+path}",\n' +
+2022-01-28T01:13:15.1824312Z       '      "contributors_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contributors",\n' +
+2022-01-28T01:13:15.1824661Z       '      "created_at": 1643016303,\n' +
+2022-01-28T01:13:15.1824901Z       '      "default_branch": "main",\n' +
+2022-01-28T01:13:15.1825282Z       '      "deployments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/deployments",\n' +
+2022-01-28T01:13:15.1825635Z       '      "description": null,\n' +
+2022-01-28T01:13:15.1825871Z       '      "disabled": false,\n' +
+2022-01-28T01:13:15.1826247Z       '      "downloads_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/downloads",\n' +
+2022-01-28T01:13:15.1826713Z       '      "events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/events",\n' +
+2022-01-28T01:13:15.1827047Z       '      "fork": false,\n' +
+2022-01-28T01:13:15.1827254Z       '      "forks": 1,\n' +
+2022-01-28T01:13:15.1827454Z       '      "forks_count": 1,\n' +
+2022-01-28T01:13:15.1827806Z       '      "forks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/forks",\n' +
+2022-01-28T01:13:15.1828254Z       '      "full_name": "o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1828686Z       '      "git_commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/commits{/sha}",\n' +
+2022-01-28T01:13:15.1829162Z       '      "git_refs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/refs{/sha}",\n' +
+2022-01-28T01:13:15.1829817Z       '      "git_tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/tags{/sha}",\n' +
+2022-01-28T01:13:15.1830275Z       '      "git_url": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1830583Z       '      "has_downloads": true,\n' +
+2022-01-28T01:13:15.1830817Z       '      "has_issues": true,\n' +
+2022-01-28T01:13:15.1831045Z       '      "has_pages": false,\n' +
+2022-01-28T01:13:15.1831262Z       '      "has_projects": true,\n' +
+2022-01-28T01:13:15.1831497Z       '      "has_wiki": true,\n' +
+2022-01-28T01:13:15.1831717Z       '      "homepage": null,\n' +
+2022-01-28T01:13:15.1832057Z       '      "hooks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/hooks",\n' +
+2022-01-28T01:13:15.1832497Z       '      "html_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1832897Z       '      "id": 451397257,\n' +
+2022-01-28T01:13:15.1833104Z       '      "is_template": false,\n' +
+2022-01-28T01:13:15.1833515Z       '      "issue_comment_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/comments{/number}",\n' +
+2022-01-28T01:13:15.1834121Z       '      "issue_events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/events{/number}",\n' +
+2022-01-28T01:13:15.1834698Z       '      "issues_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues{/number}",\n' +
+2022-01-28T01:13:15.1835184Z       '      "keys_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/keys{/key_id}",\n' +
+2022-01-28T01:13:15.1835700Z       '      "labels_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/labels{/name}",\n' +
+2022-01-28T01:13:15.1836062Z       '      "language": "JavaScript",\n' +
+2022-01-28T01:13:15.1836443Z       '      "languages_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/languages",\n' +
+2022-01-28T01:13:15.1836780Z       '      "license": null,\n' +
+2022-01-28T01:13:15.1837013Z       '      "master_branch": "main",\n' +
+2022-01-28T01:13:15.1837390Z       '      "merges_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/merges",\n' +
+2022-01-28T01:13:15.1837872Z       '      "milestones_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/milestones{/number}",\n' +
+2022-01-28T01:13:15.1838271Z       '      "mirror_url": null,\n' +
+2022-01-28T01:13:15.1838517Z       '      "name": "oLibraries.meta",\n' +
+2022-01-28T01:13:15.1838764Z       '      "node_id": "R_kgDOGufGiQ",\n' +
+2022-01-28T01:13:15.1839202Z       '      "notifications_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/notifications{?since,all,participating}",\n' +
+2022-01-28T01:13:15.1839603Z       '      "open_issues": 0,\n' +
+2022-01-28T01:13:15.1839823Z       '      "open_issues_count": 0,\n' +
+2022-01-28T01:13:15.1840047Z       '      "owner": {\n' +
+2022-01-28T01:13:15.1840363Z       '        "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",\n' +
+2022-01-28T01:13:15.1840754Z       '        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1841176Z       '        "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",\n' +
+2022-01-28T01:13:15.1841620Z       '        "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",\n' +
+2022-01-28T01:13:15.1842073Z       '        "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",\n' +
+2022-01-28T01:13:15.1842509Z       '        "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",\n' +
+2022-01-28T01:13:15.1842826Z       '        "gravatar_id": "",\n' +
+2022-01-28T01:13:15.1843131Z       '        "html_url": "https://github.com/o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1843400Z       '        "id": 58720300,\n' +
+2022-01-28T01:13:15.1843655Z       '        "login": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1843947Z       '        "name": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1844221Z       '        "node_id": "MDQ6VXNlcjU4NzIwMzAw",\n' +
+2022-01-28T01:13:15.1844592Z       '        "organizations_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/orgs",\n' +
+2022-01-28T01:13:15.1845050Z       '        "received_events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/received_events",\n' +
+2022-01-28T01:13:15.1845481Z       '        "repos_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/repos",\n' +
+2022-01-28T01:13:15.1845798Z       '        "site_admin": false,\n' +
+2022-01-28T01:13:15.1846151Z       '        "starred_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/starred{/owner}{/repo}",\n' +
+2022-01-28T01:13:15.1846601Z       '        "subscriptions_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/subscriptions",\n' +
+2022-01-28T01:13:15.1846938Z       '        "type": "User",\n' +
+2022-01-28T01:13:15.1847245Z       '        "url": "https://api.github.com/users/o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1847509Z       '      },\n' +
+2022-01-28T01:13:15.1847716Z       '      "private": false,\n' +
+2022-01-28T01:13:15.1848111Z       '      "pulls_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/pulls{/number}",\n' +
+2022-01-28T01:13:15.1848511Z       '      "pushed_at": 1643332370,\n' +
+2022-01-28T01:13:15.1848965Z       '      "releases_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/releases{/id}",\n' +
+2022-01-28T01:13:15.1849304Z       '      "size": 976,\n' +
+2022-01-28T01:13:15.1849599Z       '      "ssh_url": "git@github.com:o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1849910Z       '      "stargazers": 0,\n' +
+2022-01-28T01:13:15.1850149Z       '      "stargazers_count": 0,\n' +
+2022-01-28T01:13:15.1850515Z       '      "stargazers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/stargazers",\n' +
+2022-01-28T01:13:15.1851009Z       '      "statuses_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/statuses/{sha}",\n' +
+2022-01-28T01:13:15.1851507Z       '      "subscribers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscribers",\n' +
+2022-01-28T01:13:15.1852018Z       '      "subscription_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscription",\n' +
+2022-01-28T01:13:15.1852465Z       '      "svn_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1852899Z       '      "tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/tags",\n' +
+2022-01-28T01:13:15.1853357Z       '      "teams_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/teams",\n' +
+2022-01-28T01:13:15.1853674Z       '      "topics": [],\n' +
+2022-01-28T01:13:15.1854034Z       '      "trees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/trees{/sha}",\n' +
+2022-01-28T01:13:15.1854402Z       '      "updated_at": "2022-01-24T09:34:57Z",\n' +
+2022-01-28T01:13:15.1854723Z       '      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1855048Z       '      "visibility": "public",\n' +
+2022-01-28T01:13:15.1855283Z       '      "watchers": 0,\n' +
+2022-01-28T01:13:15.1855490Z       '      "watchers_count": 0\n' +
+2022-01-28T01:13:15.1855694Z       '    },\n' +
+2022-01-28T01:13:15.1855889Z       '    "sender": {\n' +
+2022-01-28T01:13:15.1856192Z       '      "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",\n' +
+2022-01-28T01:13:15.1856623Z       '      "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",\n' +
+2022-01-28T01:13:15.1857063Z       '      "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",\n' +
+2022-01-28T01:13:15.1857499Z       '      "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",\n' +
+2022-01-28T01:13:15.1857949Z       '      "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",\n' +
+2022-01-28T01:13:15.1858304Z       '      "gravatar_id": "",\n' +
+2022-01-28T01:13:15.1858535Z       '      "html_url"'... 1036 more characters,
+2022-01-28T01:13:15.1858761Z     OS: 'Windows_NT',
+2022-01-28T01:13:15.1864167Z     Path: 'C:\\Program Files\\PowerShell\\7;C:\\Program Files\\MongoDB\\Server\\5.0\\bin;C:\\aliyun-cli;C:\\vcpkg;C:\\cf-cli;C:\\Program Files (x86)\\NSIS\\;C:\\tools\\zstd;C:\\Program Files\\Mercurial\\;C:\\hostedtoolcache\\windows\\stack\\2.7.3\\x64;C:\\cabal\\bin;C:\\\\ghcup\\bin;C:\\tools\\ghc-9.2.1\\bin;C:\\Program Files\\dotnet;C:\\mysql\\bin;C:\\Program Files\\R\\R-4.1.2\\bin\\x64;C:\\SeleniumWebDrivers\\GeckoDriver;C:\\Program Files (x86)\\sbt\\bin;C:\\Program Files (x86)\\GitHub CLI;C:\\Program Files\\Git\\bin;C:\\Program Files (x86)\\pipx_bin;C:\\hostedtoolcache\\windows\\go\\1.15.15\\x64\\bin;C:\\hostedtoolcache\\windows\\Python\\3.7.9\\x64\\Scripts;C:\\hostedtoolcache\\windows\\Python\\3.7.9\\x64;C:\\hostedtoolcache\\windows\\Ruby\\2.5.9\\x64\\bin;C:\\tools\\kotlinc\\bin;C:\\hostedtoolcache\\windows\\Java_Temurin-Hotspot_jdk\\8.0.312-7\\x64\\bin;C:\\npm\\prefix;C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2\\wbin;C:\\ProgramData\\kind;C:\\Program Files\\Eclipse Foundation\\jdk-8.0.302.8-hotspot\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\ProgramData\\Chocolatey\\bin;C:\\Program Files\\Docker;C:\\Program Files\\PowerShell\\7\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\130\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\OpenSSL\\bin;C:\\Strawberry\\c\\bin;C:\\Strawberry\\perl\\site\\bin;C:\\Strawberry\\perl\\bin;C:\\ProgramData\\chocolatey\\lib\\pulumi\\tools\\Pulumi\\bin;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\CMake\\bin;C:\\ProgramData\\chocolatey\\lib\\maven\\apache-maven-3.8.4\\bin;C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code;C:\\Program Files\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricLocalClusterManager;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;c:\\tools\\php;C:\\Program Files (x86)\\sbt\\bin;C:\\SeleniumWebDrivers\\ChromeDriver\\;C:\\SeleniumWebDrivers\\EdgeDriver\\;C:\\Program Files\\Amazon\\AWSCLIV2\\;C:\\Program Files\\Amazon\\SessionManagerPlugin\\bin\\;C:\\Program Files\\Amazon\\AWSSAMCLI\\bin\\;C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Program Files (x86)\\Microsoft BizTalk Server\\;C:\\Program Files\\LLVM\\bin;C:\\Users\\runneradmin\\.dotnet\\tools;C:\\Users\\runneradmin\\.cargo\\bin;C:\\Users\\runneradmin\\AppData\\Local\\Microsoft\\WindowsApps',
+2022-01-28T01:13:15.1869040Z     PATHEXT: '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL',
+2022-01-28T01:13:15.1869361Z     PERFLOG_LOCATION_SETTING: 'RUNNER_PERFLOG',
+2022-01-28T01:13:15.1869647Z     PGBIN: 'C:\\Program Files\\PostgreSQL\\14\\bin',
+2022-01-28T01:13:15.1869952Z     PGDATA: 'C:\\Program Files\\PostgreSQL\\14\\data',
+2022-01-28T01:13:15.1870210Z     PGPASSWORD: 'root',
+2022-01-28T01:13:15.1870455Z     PGROOT: 'C:\\Program Files\\PostgreSQL\\14',
+2022-01-28T01:13:15.1870706Z     PGUSER: 'postgres',
+2022-01-28T01:13:15.1870913Z     PHPROOT: 'c:\\tools\\php',
+2022-01-28T01:13:15.1871209Z     PIPX_BIN_DIR: 'C:\\Program Files (x86)\\pipx_bin',
+2022-01-28T01:13:15.1871496Z     PIPX_HOME: 'C:\\Program Files (x86)\\pipx',
+2022-01-28T01:13:15.1871802Z     POWERSHELL_DISTRIBUTION_CHANNEL: 'GitHub-Actions-win19',
+2022-01-28T01:13:15.1872103Z     POWERSHELL_UPDATECHECK: 'Off',
+2022-01-28T01:13:15.1872360Z     PROCESSOR_ARCHITECTURE: 'AMD64',
+2022-01-28T01:13:15.1872671Z     PROCESSOR_IDENTIFIER: 'Intel64 Family 6 Model 85 Stepping 7, GenuineIntel',
+2022-01-28T01:13:15.1872963Z     PROCESSOR_LEVEL: '6',
+2022-01-28T01:13:15.1873190Z     PROCESSOR_REVISION: '5507',
+2022-01-28T01:13:15.1873421Z     ProgramData: 'C:\\ProgramData',
+2022-01-28T01:13:15.1873673Z     ProgramFiles: 'C:\\Program Files',
+2022-01-28T01:13:15.1873952Z     'ProgramFiles(x86)': 'C:\\Program Files (x86)',
+2022-01-28T01:13:15.1874201Z     ProgramW6432: 'C:\\Program Files',
+2022-01-28T01:13:15.1875284Z     PSModulePath: 'C:\\Users\\runneradmin\\Documents\\PowerShell\\Modules;C:\\Program Files\\PowerShell\\Modules;c:\\program files\\powershell\\7\\Modules;C:\\\\Modules\\azurerm_2.1.0;C:\\\\Modules\\azure_2.1.0;C:\\Users\\packer\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\PowerShell\\Modules\\;C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\platform\\PowerShell',
+2022-01-28T01:13:15.1876272Z     PUBLIC: 'C:\\Users\\Public',
+2022-01-28T01:13:15.1876592Z     RTOOLS40_HOME: 'C:\\rtools40',
+2022-01-28T01:13:15.1876811Z     RUNNER_ARCH: 'X64',
+2022-01-28T01:13:15.1877014Z     RUNNER_NAME: 'Hosted Agent',
+2022-01-28T01:13:15.1877232Z     RUNNER_OS: 'Windows',
+2022-01-28T01:13:15.1877461Z     RUNNER_PERFLOG: 'C:\\actions\\perflog',
+2022-01-28T01:13:15.1877703Z     RUNNER_TEMP: 'D:\\a\\_temp',
+2022-01-28T01:13:15.1877970Z     RUNNER_TOOL_CACHE: 'C:\\hostedtoolcache\\windows',
+2022-01-28T01:13:15.1878312Z     RUNNER_TRACKING_ID: 'github_57b38f73-1862-488b-826c-803eceb4380e',
+2022-01-28T01:13:15.1878624Z     RUNNER_WORKSPACE: 'D:\\a\\oLibraries.meta',
+2022-01-28T01:13:15.1878902Z     SBT_HOME: 'C:\\Program Files (x86)\\sbt\\',
+2022-01-28T01:13:15.1879192Z     SELENIUM_JAR_PATH: 'C:\\selenium\\selenium-server.jar',
+2022-01-28T01:13:15.1879463Z     SystemDrive: 'C:',
+2022-01-28T01:13:15.1879682Z     SystemRoot: 'C:\\Windows',
+2022-01-28T01:13:15.1879944Z     TEMP: 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp',
+2022-01-28T01:13:15.1880246Z     TMP: 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp',
+2022-01-28T01:13:15.1880511Z     USERDOMAIN: 'fv-az8-368',
+2022-01-28T01:13:15.1880759Z     USERDOMAIN_ROAMINGPROFILE: 'fv-az8-368',
+2022-01-28T01:13:15.1881009Z     USERNAME: 'runneradmin',
+2022-01-28T01:13:15.1881251Z     USERPROFILE: 'C:\\Users\\runneradmin',
+2022-01-28T01:13:15.1881498Z     VCPKG_INSTALLATION_ROOT: 'C:\\vcpkg',
+2022-01-28T01:13:15.1881836Z     VS140COMNTOOLS: 'C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\',
+2022-01-28T01:13:15.1882134Z     windir: 'C:\\Windows',
+2022-01-28T01:13:15.1882380Z     WIX: 'C:\\Program Files (x86)\\WiX Toolset v3.11\\'
+2022-01-28T01:13:15.1882610Z   },
+2022-01-28T01:13:15.1882779Z   Config: {
+2022-01-28T01:13:15.1882948Z     FromRepo: {
+2022-01-28T01:13:15.1883162Z       Owner: 'oth-dhghospital',
+2022-01-28T01:13:15.1883373Z       Repo: 'oLibraries',
+2022-01-28T01:13:15.1883783Z       Token: 'U2FsdGVkX1+dvjeZus9hakS7pw71G8URj9WDzm9iPy5y5Qk2XrjENKEH8CkVmO1/8XZXUTAtPPjzD9Bd4tlLVQ=='
+2022-01-28T01:13:15.1884155Z     },
+2022-01-28T01:13:15.1884346Z     ToAzureGits: [ [Object], [Object] ],
+2022-01-28T01:13:15.1884582Z     IsShowConfig: true,
+2022-01-28T01:13:15.1884887Z     ExcludeDirectoryPaths: [ 'node_modules/', 'dist/', '.git/', 'source/', '.github/' ],
+2022-01-28T01:13:15.1885262Z     ExcludeFilePaths: [ 'package.json', 'package-lock.json', '.gitignore' ],
+2022-01-28T01:13:15.1885551Z     GITHUBSECRETS: {
+2022-01-28T01:13:15.1885983Z       OENV_AESPASSPHRASE: '***',
+2022-01-28T01:13:15.1886245Z       OENV_COMMITMESSAGE: 'toJSON(github)',
+2022-01-28T01:13:15.1886478Z       OENV_GITHUB_EVENT: '{\n' +
+2022-01-28T01:13:15.1886826Z         '  "token": "***",\n' +
+2022-01-28T01:13:15.1887062Z         '  "job": "analyze_repo_meta",\n' +
+2022-01-28T01:13:15.1887288Z         '  "ref": "refs/heads/main",\n' +
+2022-01-28T01:13:15.1887576Z         '  "sha": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1887921Z         '  "repository": "o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1888294Z         '  "repository_owner": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1888686Z         '  "repositoryUrl": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1889008Z         '  "run_id": "1759314756",\n' +
+2022-01-28T01:13:15.1889217Z         '  "run_number": "68",\n' +
+2022-01-28T01:13:15.1889438Z         '  "retention_days": "90",\n' +
+2022-01-28T01:13:15.1889660Z         '  "run_attempt": "1",\n' +
+2022-01-28T01:13:15.1889902Z         '  "actor": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1890192Z         '  "workflow": ".github/workflows/main.yml",\n' +
+2022-01-28T01:13:15.1890438Z         '  "head_ref": "",\n' +
+2022-01-28T01:13:15.1890633Z         '  "base_ref": "",\n' +
+2022-01-28T01:13:15.1890855Z         '  "event_name": "push",\n' +
+2022-01-28T01:13:15.1891149Z         '  "event": {\n' +
+2022-01-28T01:13:15.1891423Z         '    "after": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1891771Z         '    "base_ref": null,\n' +
+2022-01-28T01:13:15.1892041Z         '    "before": "e912cceda9d2c80a707d5ec0ca70fe585c4b57c6",\n' +
+2022-01-28T01:13:15.1892307Z         '    "commits": [\n' +
+2022-01-28T01:13:15.1892503Z         '      {\n' +
+2022-01-28T01:13:15.1892687Z         '        "author": {\n' +
+2022-01-28T01:13:15.1892993Z         '          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1893378Z         '          "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1893648Z         '          "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1893892Z         '        },\n' +
+2022-01-28T01:13:15.1894097Z         '        "committer": {\n' +
+2022-01-28T01:13:15.1894396Z         '          "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1894731Z         '          "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1895014Z         '          "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1895239Z         '        },\n' +
+2022-01-28T01:13:15.1895445Z         '        "distinct": true,\n' +
+2022-01-28T01:13:15.1895725Z         '        "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1896005Z         '        "message": "toJSON(github)",\n' +
+2022-01-28T01:13:15.1896270Z         '        "timestamp": "2022-01-28T08:12:48+07:00",\n' +
+2022-01-28T01:13:15.1896570Z         '        "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",\n' +
+2022-01-28T01:13:15.1897006Z         '        "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"\n' +
+2022-01-28T01:13:15.1897355Z         '      }\n' +
+2022-01-28T01:13:15.1897536Z         '    ],\n' +
+2022-01-28T01:13:15.1897883Z         '    "compare": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/e912cceda9d2...f94aa81d3783",\n' +
+2022-01-28T01:13:15.1898283Z         '    "created": false,\n' +
+2022-01-28T01:13:15.1898506Z         '    "deleted": false,\n' +
+2022-01-28T01:13:15.1898717Z         '    "forced": false,\n' +
+2022-01-28T01:13:15.1898934Z         '    "head_commit": {\n' +
+2022-01-28T01:13:15.1899147Z         '      "author": {\n' +
+2022-01-28T01:13:15.1899445Z         '        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1899776Z         '        "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1900056Z         '        "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1900285Z         '      },\n' +
+2022-01-28T01:13:15.1900488Z         '      "committer": {\n' +
+2022-01-28T01:13:15.1900803Z         '        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1901116Z         '        "name": "Ông Triệu Hậu",\n' +
+2022-01-28T01:13:15.1901395Z         '        "username": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1901642Z         '      },\n' +
+2022-01-28T01:13:15.1901832Z         '      "distinct": true,\n' +
+2022-01-28T01:13:15.1902108Z         '      "id": "f94aa81d37837a8dcd6eaaf34effd5868ed137a2",\n' +
+2022-01-28T01:13:15.1902397Z         '      "message": "toJSON(github)",\n' +
+2022-01-28T01:13:15.1902647Z         '      "timestamp": "2022-01-28T08:12:48+07:00",\n' +
+2022-01-28T01:13:15.1902945Z         '      "tree_id": "4da4dcf0b14eccbd4a3da73447327d30ad9717d4",\n' +
+2022-01-28T01:13:15.1903391Z         '      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta/commit/f94aa81d37837a8dcd6eaaf34effd5868ed137a2"\n' +
+2022-01-28T01:13:15.1903726Z         '    },\n' +
+2022-01-28T01:13:15.1903921Z         '    "pusher": {\n' +
+2022-01-28T01:13:15.1904228Z         '      "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1904635Z         '      "name": "o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1904875Z         '    },\n' +
+2022-01-28T01:13:15.1905486Z         '    "ref": "refs/heads/main",\n' +
+2022-01-28T01:13:15.1905700Z         '    "repository": {\n' +
+2022-01-28T01:13:15.1905939Z         '      "allow_forking": true,\n' +
+2022-01-28T01:13:15.1906338Z         '      "archive_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/{archive_format}{/ref}",\n' +
+2022-01-28T01:13:15.1906690Z         '      "archived": false,\n' +
+2022-01-28T01:13:15.1907075Z         '      "assignees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/assignees{/user}",\n' +
+2022-01-28T01:13:15.1907570Z         '      "blobs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/blobs{/sha}",\n' +
+2022-01-28T01:13:15.1908103Z         '      "branches_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/branches{/branch}",\n' +
+2022-01-28T01:13:15.1908575Z         '      "clone_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1909079Z         '      "collaborators_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/collaborators{/collaborator}",\n' +
+2022-01-28T01:13:15.1909605Z         '      "comments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/comments{/number}",\n' +
+2022-01-28T01:13:15.1910085Z         '      "commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/commits{/sha}",\n' +
+2022-01-28T01:13:15.1910589Z         '      "compare_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/compare/{base}...{head}",\n' +
+2022-01-28T01:13:15.1911093Z         '      "contents_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contents/{+path}",\n' +
+2022-01-28T01:13:15.1911582Z         '      "contributors_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/contributors",\n' +
+2022-01-28T01:13:15.1911951Z         '      "created_at": 1643016303,\n' +
+2022-01-28T01:13:15.1912202Z         '      "default_branch": "main",\n' +
+2022-01-28T01:13:15.1912571Z         '      "deployments_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/deployments",\n' +
+2022-01-28T01:13:15.1912938Z         '      "description": null,\n' +
+2022-01-28T01:13:15.1913180Z         '      "disabled": false,\n' +
+2022-01-28T01:13:15.1913533Z         '      "downloads_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/downloads",\n' +
+2022-01-28T01:13:15.1914011Z         '      "events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/events",\n' +
+2022-01-28T01:13:15.1914348Z         '      "fork": false,\n' +
+2022-01-28T01:13:15.1914544Z         '      "forks": 1,\n' +
+2022-01-28T01:13:15.1914759Z         '      "forks_count": 1,\n' +
+2022-01-28T01:13:15.1915110Z         '      "forks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/forks",\n' +
+2022-01-28T01:13:15.1915515Z         '      "full_name": "o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1915940Z         '      "git_commits_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/commits{/sha}",\n' +
+2022-01-28T01:13:15.1916429Z         '      "git_refs_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/refs{/sha}",\n' +
+2022-01-28T01:13:15.1916908Z         '      "git_tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/tags{/sha}",\n' +
+2022-01-28T01:13:15.1917336Z         '      "git_url": "git://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1917659Z         '      "has_downloads": true,\n' +
+2022-01-28T01:13:15.1917890Z         '      "has_issues": true,\n' +
+2022-01-28T01:13:15.1918136Z         '      "has_pages": false,\n' +
+2022-01-28T01:13:15.1918447Z         '      "has_projects": true,\n' +
+2022-01-28T01:13:15.1918678Z         '      "has_wiki": true,\n' +
+2022-01-28T01:13:15.1918950Z         '      "homepage": null,\n' +
+2022-01-28T01:13:15.1919305Z         '      "hooks_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/hooks",\n' +
+2022-01-28T01:13:15.1919890Z         '      "html_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1920184Z         '      "id": 451397257,\n' +
+2022-01-28T01:13:15.1920411Z         '      "is_template": false,\n' +
+2022-01-28T01:13:15.1920803Z         '      "issue_comment_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/comments{/number}",\n' +
+2022-01-28T01:13:15.1921314Z         '      "issue_events_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues/events{/number}",\n' +
+2022-01-28T01:13:15.1921815Z         '      "issues_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/issues{/number}",\n' +
+2022-01-28T01:13:15.1922297Z         '      "keys_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/keys{/key_id}",\n' +
+2022-01-28T01:13:15.1922778Z         '      "labels_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/labels{/name}",\n' +
+2022-01-28T01:13:15.1923126Z         '      "language": "JavaScript",\n' +
+2022-01-28T01:13:15.1923504Z         '      "languages_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/languages",\n' +
+2022-01-28T01:13:15.1923847Z         '      "license": null,\n' +
+2022-01-28T01:13:15.1924069Z         '      "master_branch": "main",\n' +
+2022-01-28T01:13:15.1924434Z         '      "merges_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/merges",\n' +
+2022-01-28T01:13:15.1924925Z         '      "milestones_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/milestones{/number}",\n' +
+2022-01-28T01:13:15.1925274Z         '      "mirror_url": null,\n' +
+2022-01-28T01:13:15.1925523Z         '      "name": "oLibraries.meta",\n' +
+2022-01-28T01:13:15.1925779Z         '      "node_id": "R_kgDOGufGiQ",\n' +
+2022-01-28T01:13:15.1926200Z         '      "notifications_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/notifications{?since,all,participating}",\n' +
+2022-01-28T01:13:15.1926598Z         '      "open_issues": 0,\n' +
+2022-01-28T01:13:15.1926839Z         '      "open_issues_count": 0,\n' +
+2022-01-28T01:13:15.1927083Z         '      "owner": {\n' +
+2022-01-28T01:13:15.1927404Z         '        "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",\n' +
+2022-01-28T01:13:15.1927810Z         '        "email": "58720300+o-ngtrieuhau861gmailcom@users.noreply.github.com",\n' +
+2022-01-28T01:13:15.1928259Z         '        "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",\n' +
+2022-01-28T01:13:15.1928710Z         '        "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",\n' +
+2022-01-28T01:13:15.1929160Z         '        "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",\n' +
+2022-01-28T01:13:15.1929603Z         '        "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",\n' +
+2022-01-28T01:13:15.1929915Z         '        "gravatar_id": "",\n' +
+2022-01-28T01:13:15.1930219Z         '        "html_url": "https://github.com/o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1930499Z         '        "id": 58720300,\n' +
+2022-01-28T01:13:15.1930739Z         '        "login": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1931031Z         '        "name": "o-ngtrieuhau861gmailcom",\n' +
+2022-01-28T01:13:15.1931326Z         '        "node_id": "MDQ6VXNlcjU4NzIwMzAw",\n' +
+2022-01-28T01:13:15.1931677Z         '        "organizations_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/orgs",\n' +
+2022-01-28T01:13:15.1932220Z         '        "received_events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/received_events",\n' +
+2022-01-28T01:13:15.1932731Z         '        "repos_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/repos",\n' +
+2022-01-28T01:13:15.1933035Z         '        "site_admin": false,\n' +
+2022-01-28T01:13:15.1933392Z         '        "starred_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/starred{/owner}{/repo}",\n' +
+2022-01-28T01:13:15.1933859Z         '        "subscriptions_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/subscriptions",\n' +
+2022-01-28T01:13:15.1934180Z         '        "type": "User",\n' +
+2022-01-28T01:13:15.1934487Z         '        "url": "https://api.github.com/users/o-ngtrieuhau861gmailcom"\n' +
+2022-01-28T01:13:15.1934766Z         '      },\n' +
+2022-01-28T01:13:15.1934962Z         '      "private": false,\n' +
+2022-01-28T01:13:15.1935327Z         '      "pulls_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/pulls{/number}",\n' +
+2022-01-28T01:13:15.1935676Z         '      "pushed_at": 1643332370,\n' +
+2022-01-28T01:13:15.1936034Z         '      "releases_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/releases{/id}",\n' +
+2022-01-28T01:13:15.1936376Z         '      "size": 976,\n' +
+2022-01-28T01:13:15.1936689Z         '      "ssh_url": "git@github.com:o-ngtrieuhau861gmailcom/oLibraries.meta.git",\n' +
+2022-01-28T01:13:15.1936983Z         '      "stargazers": 0,\n' +
+2022-01-28T01:13:15.1937216Z         '      "stargazers_count": 0,\n' +
+2022-01-28T01:13:15.1937589Z         '      "stargazers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/stargazers",\n' +
+2022-01-28T01:13:15.1938100Z         '      "statuses_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/statuses/{sha}",\n' +
+2022-01-28T01:13:15.1938597Z         '      "subscribers_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscribers",\n' +
+2022-01-28T01:13:15.1939097Z         '      "subscription_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/subscription",\n' +
+2022-01-28T01:13:15.1939551Z         '      "svn_url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1939969Z         '      "tags_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/tags",\n' +
+2022-01-28T01:13:15.1940429Z         '      "teams_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/teams",\n' +
+2022-01-28T01:13:15.1940753Z         '      "topics": [],\n' +
+2022-01-28T01:13:15.1941096Z         '      "trees_url": "https://api.github.com/repos/o-ngtrieuhau861gmailcom/oLibraries.meta/git/trees{/sha}",\n' +
+2022-01-28T01:13:15.1941461Z         '      "updated_at": "2022-01-24T09:34:57Z",\n' +
+2022-01-28T01:13:15.1941799Z         '      "url": "https://github.com/o-ngtrieuhau861gmailcom/oLibraries.meta",\n' +
+2022-01-28T01:13:15.1942111Z         '      "visibility": "public",\n' +
+2022-01-28T01:13:15.1942342Z         '      "watchers": 0,\n' +
+2022-01-28T01:13:15.1942569Z         '      "watchers_count": 0\n' +
+2022-01-28T01:13:15.1942766Z         '    },\n' +
+2022-01-28T01:13:15.1942957Z         '    "sender": {\n' +
+2022-01-28T01:13:15.1943268Z         '      "avatar_url": "https://avatars.githubusercontent.com/u/58720300?v=4",\n' +
+2022-01-28T01:13:15.1943680Z         '      "events_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/events{/privacy}",\n' +
+2022-01-28T01:13:15.1944177Z         '      "followers_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/followers",\n' +
+2022-01-28T01:13:15.1944630Z         '      "following_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/following{/other_user}",\n' +
+2022-01-28T01:13:15.1945062Z         '      "gists_url": "https://api.github.com/users/o-ngtrieuhau861gmailcom/gists{/gist_id}",\n' +
+2022-01-28T01:13:15.1945455Z         '      "gravatar_id": "",\n' +
+2022-01-28T01:13:15.1945704Z         '      "html_url"'... 1036 more characters
+2022-01-28T01:13:15.1945946Z     }
+2022-01-28T01:13:15.1946108Z   }
+2022-01-28T01:13:15.1946266Z }
+2022-01-28T01:13:15.6502371Z Post job cleanup.
+2022-01-28T01:13:17.6209368Z [command]"C:\Program Files\Git\bin\git.exe" version
+2022-01-28T01:13:17.6411436Z git version 2.34.1.windows.1
+2022-01-28T01:13:17.6483255Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2022-01-28T01:13:17.6723402Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2022-01-28T01:13:18.1440609Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2022-01-28T01:13:18.1630074Z http.https://github.com/.extraheader
+2022-01-28T01:13:18.1682281Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2022-01-28T01:13:18.1933958Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2022-01-28T01:13:18.6763567Z Cleaning up orphan processes
