@@ -1,0 +1,24 @@
+{
+  "OriginalFilename": "OTH.XForms.dll",
+  "FileVersion": "1.22.0128.1",
+  "FileDescription": "OTH.XForms by ongtrieuhau @ 2017",
+  "FileLength": 9353728,
+  "IsExe": false,
+  "FileTime": {
+    "CreationTime": "20220128 13:15:11",
+    "LastWriteTime": "20220128 13:15:10",
+    "LastAccessTime": "20220128 13:15:12"
+  },
+  "FileHashMD5": "19222BF63D2320E8EDC74C5912513346",
+  "FileHashSHA1": "11DC7557BA29D69029F39922232E6821595E497C",
+  "ReferencedAssemblies": [
+    "Roo.Exe, Version=1.20.1125.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "AssemblyFullName": "OTH.XForms, Version=1.22.128.1, Culture=neutral, PublicKeyToken=null",
+  "AssemblyFullNameMD5": "B9EA008F6301E3961F6751A837D09710",
+  "AssemblyFullNameSHA1": "3D69F008DF0293EC8A78C505439E246898E9920A",
+  "AssemblyName": "OTH.XForms",
+  "AssemblyVersion": "1.22.128.1",
+  "AssemblyProcessorArchitecture": "MSIL",
+  "AssemblyImageRuntimeVersion": "v4.0.30319"
+}
