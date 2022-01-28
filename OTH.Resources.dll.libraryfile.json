@@ -1,0 +1,24 @@
+{
+  "OriginalFilename": "OTH.Resources.dll",
+  "FileVersion": "1.22.0128.1",
+  "FileDescription": "OTH.Resources by ongtrieuhau @ 2017",
+  "FileLength": 10177536,
+  "IsExe": false,
+  "FileTime": {
+    "CreationTime": "20220128 07:53:09",
+    "LastWriteTime": "20220128 07:53:09",
+    "LastAccessTime": "20220128 07:53:09"
+  },
+  "FileHashMD5": "53F89BCD0F5D3E90F6D1F2A513F67272",
+  "FileHashSHA1": "23A6B9B772E41C42E2F6913650E296FF26A85953",
+  "ReferencedAssemblies": [
+    
+  ],
+  "AssemblyFullName": "OTH.Resources, Version=1.22.128.1, Culture=neutral, PublicKeyToken=null",
+  "AssemblyFullNameMD5": "9FB60EA9547C07D6D3E687EEFB7C1C1C",
+  "AssemblyFullNameSHA1": "430994B983AC2D5985C885EF722ED7610A9FBA36",
+  "AssemblyName": "OTH.Resources",
+  "AssemblyVersion": "1.22.128.1",
+  "AssemblyProcessorArchitecture": "MSIL",
+  "AssemblyImageRuntimeVersion": "v4.0.30319"
+}
