@@ -429,7 +429,9 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
       };
       for (let i = 0; i < pathFiles.length; i++) {
          let curFile = pathFiles[i];
-         const objFile = JSON.parse(fs.readFileSync(curFile, "utf8"));
+         let curFileContent = fs.readFileSync(curFile, "utf8");
+         let curFileContentBase64 = Buffer.from(curFileContent, "utf8").toString("base64");
+         const objFile = JSON.parse(curFileContent);
          let curPathGit = curFile.replaceAll(directoryPath, "").replaceAll("\\", "/").replaceAll(prefix, "");
          var getBlobs = await oGithub.DownloadBlobs(curPathGit);
          const { content, encoding } = getBlobs || {};
@@ -448,7 +450,10 @@ var crytoVar = "BẮT ĐẦU THỰC HIỆN";
                      if (checkToJSONConfig(azureField) === true) {
                         for (let j = 0; j < JSONConfig[azureField].length; j++) {
                            let oAzureGit = Azure.Create(JSONConfig[azureField][j], JSONConfig.GITHUBSECRETS.OENV_AESPASSPHRASE);
-                           let uploadItems = [{ pathGit: uploadNameFile, base64: content }];
+                           let uploadItems = [
+                              { pathGit: uploadNameFile, base64: content },
+                              { pathGit: uploadNameFile + prefix, base64: curFileContentBase64 },
+                           ];
                            try {
                               let functionName = azureField === "ToAzureGits" ? "GitCommitBase64s" : "TfvcCommitBase64s";
                               let commit = await oAzureGit[functionName](uploadItems, JSON.stringify(createCommitComment(objFile)));
