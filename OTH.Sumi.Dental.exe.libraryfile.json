@@ -1,24 +1,24 @@
 {
   "OriginalFilename": "OTH.Sumi.Dental.exe",
-  "FileVersion": "1.22.0127.6",
+  "FileVersion": "1.22.0210.2",
   "FileDescription": "OTH.Sumi.Dental",
   "FileLength": 5027840,
   "IsExe": true,
   "FileTime": {
     "CreationTime": "20220127 16:23:44",
-    "LastWriteTime": "20220127 16:23:44",
-    "LastAccessTime": "20220127 16:23:45"
+    "LastWriteTime": "20220210 15:47:36",
+    "LastAccessTime": "20220210 15:47:37"
   },
-  "FileHashMD5": "9D239F9BD575475FDB8264D925A08133",
-  "FileHashSHA1": "88EAD44709AE4744A3B085DA9394B02B70B12CFF",
+  "FileHashMD5": "3C3CDD33347C6AF10B19F8CC212715C8",
+  "FileHashSHA1": "DB22F5233AB16F3BAE7E10216A93F149F249A99F",
   "ReferencedAssemblies": [
     "Npgsql, Version=2.2.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7"
   ],
-  "AssemblyFullName": "OTH.Sumi.Dental, Version=1.22.127.6, Culture=neutral, PublicKeyToken=null",
-  "AssemblyFullNameMD5": "FF2DE4E0BA52EC2E94DA911B80823ED9",
-  "AssemblyFullNameSHA1": "36209B5B247211E52850A22245A866CE4C7BF635",
+  "AssemblyFullName": "OTH.Sumi.Dental, Version=1.22.210.2, Culture=neutral, PublicKeyToken=null",
+  "AssemblyFullNameMD5": "B8FBB63DEBD1D60B62A4D1EEF35B8E69",
+  "AssemblyFullNameSHA1": "27F7F9ECAFC119447DCF8A0BBFCD5E943B0BE58B",
   "AssemblyName": "OTH.Sumi.Dental",
-  "AssemblyVersion": "1.22.127.6",
+  "AssemblyVersion": "1.22.210.2",
   "AssemblyProcessorArchitecture": "X86",
   "AssemblyImageRuntimeVersion": "v4.0.30319"
 }
